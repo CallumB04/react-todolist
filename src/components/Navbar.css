@@ -17,7 +17,6 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-
 }
 
 .navbar-item {
@@ -28,4 +27,9 @@
 .navbar-item.active {
     background: var(--navbar-highlight-color);
     border-radius: 10px;
+}
+
+.navbar-item a {
+    color: var(--navbar-text-color);
+    text-decoration: none;
 }

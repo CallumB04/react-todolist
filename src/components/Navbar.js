@@ -9,8 +9,16 @@ function Navbar() {
     return (
         <nav className="navbar">
             <ul>
-                <NavbarItem isActive={activePage === "home" ? true : false} itemName="Home" />
-                <NavbarItem isActive={activePage === "todo" ? true : false} itemName="Todolist" />
+                <NavbarItem 
+                    isActive={activePage === "home" ? true : false} 
+                    itemName="Home" 
+                    destination="/"
+                />
+                <NavbarItem 
+                    isActive={activePage === "todo" ? true : false} 
+                    itemName="Todolist" 
+                    destination="/todolist"
+                />
             </ul>
         </nav>
     );
@@ -19,12 +27,14 @@ function Navbar() {
 function NavbarItem(props) {
 
     // destructuring props
-    const { isActive, itemName } = props;
+    const { isActive, itemName, destination } = props;
 
     // adds 'active' class if set in props, will highlight behind navbar option
     return (
         <li className={`navbar-item ${isActive ? "active" : ""}`}>
-            {itemName}
+            <a href={destination}>
+                {itemName}
+            </a>
         </li>
     );
 }
