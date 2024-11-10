@@ -1,11 +1,17 @@
 import "./Navbar.css";
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
 
+    // map of url pathnames to pages, to initialise activePage with correct page
+    const destinationToPage = {
+        "/": "home",
+        "/todolist": "todo"
+    }
+
     // state for active page - will highlight behind active page in navbar
-    const [activePage, setActivePage] = useState("home");
+    const [activePage, setActivePage] = useState(destinationToPage[useLocation().pathname]);
 
     // function to update activePage on click
     const handlePageChange = (page) => {
