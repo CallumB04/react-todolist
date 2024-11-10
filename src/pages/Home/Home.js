@@ -1,23 +1,19 @@
+
 import "./Home.css"
 import React from 'react';
 
-class Home extends React.Component {
-    constructor(props) {
-        super(props);
+function Home() {
 
-        this.state = {
+    const [count, setCount] = React.useState(0);
 
-        }
-    }
+    return (
+        <main className="main">
+            <h1>Home Page</h1>
 
-    render() {
-        return (
-            <main className="main">
-                <h1>Home Page</h1>
-            </main>
-        );
-    }
-
+            <button onClick={() => setCount(count + 1)} type="button">Click me!</button>
+            <p>{count}</p>
+        </main>
+    );
 }
 
 export default Home;
