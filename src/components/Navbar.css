@@ -1,0 +1,35 @@
+.navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: var(--navbar-color);
+}
+
+.navbar ul {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-item {
+    color: var(--navbar-text-color);
+    padding: 7px;
+}
+
+.navbar-item.active {
+    background: var(--navbar-highlight-color);
+    border-radius: 10px;
+}
+
+.navbar-item a {
+    color: var(--navbar-text-color);
+    text-decoration: none;
+}

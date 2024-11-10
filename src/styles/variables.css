@@ -1,0 +1,7 @@
+:root {
+    /* Navbar */
+    --navbar-height: 70px;
+    --navbar-color: #1c2e4a;
+    --navbar-text-color: #f3f3f3;
+    --navbar-highlight-color: #4d79a8;
+}
