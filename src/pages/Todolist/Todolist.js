@@ -4,7 +4,9 @@ import React from 'react';
 function Todolist() {
 
     return (
-        <h1>Todolist Page</h1>
+        <main className="main">
+            <h1>Todolist Page</h1>
+        </main>
     );
 }
 
