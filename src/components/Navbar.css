@@ -7,3 +7,25 @@
     z-index: 99;
     background-color: var(--navbar-color);
 }
+
+.navbar ul {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.navbar-item {
+    color: var(--navbar-text-color);
+}
+
+.navbar-item.active {
+    background: var(--navbar-highlight-color);
+    padding: 7px;
+    border-radius: 10px;
+}

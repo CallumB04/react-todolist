@@ -8,8 +8,24 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-
+            <ul>
+                <NavbarItem isActive={true} itemName="Home" />
+                <NavbarItem isActive={false} itemName="Todolist" />
+            </ul>
         </nav>
+    );
+}
+
+function NavbarItem(props) {
+
+    // destructuring props
+    const { isActive, itemName } = props;
+
+    // adds 'active' class if set in props, will highlight behind navbar option
+    return (
+        <li className={`navbar-item ${isActive ? "active" : ""}`}>
+            {itemName}
+        </li>
     );
 }
 
