@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 function Navbar() {
 
     // state for active page - will highlight behind active page in navbar
-    const [activePage, setActivePage] = useState("home");
+    const [activePage, setActivePage] = useState("todo");
 
     return (
         <nav className="navbar">
             <ul>
-                <NavbarItem isActive={true} itemName="Home" />
-                <NavbarItem isActive={false} itemName="Todolist" />
+                <NavbarItem isActive={activePage === "home" ? true : false} itemName="Home" />
+                <NavbarItem isActive={activePage === "todo" ? true : false} itemName="Todolist" />
             </ul>
         </nav>
     );

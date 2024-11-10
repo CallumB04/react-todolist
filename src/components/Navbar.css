@@ -22,10 +22,10 @@
 
 .navbar-item {
     color: var(--navbar-text-color);
+    padding: 7px;
 }
 
 .navbar-item.active {
     background: var(--navbar-highlight-color);
-    padding: 7px;
     border-radius: 10px;
 }
