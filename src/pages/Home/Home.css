@@ -1,0 +1,29 @@
+#home-page {
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#home-header, #made-by, #description {
+    max-width: 75%;
+}
+
+#home-header {
+    font-size: calc(1.8vw + 2.15rem);
+}
+
+#made-by {
+    font-size: calc(0.7vw + 0.5rem);
+    font-style: italic;
+    margin-top: 2px;
+}
+
+#description {
+    font-size: calc(0.6vw + 0.7rem);
+    width: 70ch;
+    margin-top: calc(1.8vw + 0.6rem); 
+}
