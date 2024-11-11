@@ -1,0 +1,24 @@
+#home-page-btn {
+    margin-top: 40px;
+    width: calc(4.5vw + 14rem);
+    height: calc(0.8vw + 3.5rem);
+    
+    border: none;
+    border-radius: 50px;
+    background-color: var(--home-btn-color);
+
+    transition: transform 100ms ease;
+}
+
+#home-page-btn:active {
+    transform: translateY(3px);
+}
+
+#home-page-btn:hover {
+    cursor: pointer;
+    background-color: var(--home-btn-hover-color);
+}
+
+#home-page-btn-text {
+    font-size: calc(0.5vw + 0.8rem);
+}
