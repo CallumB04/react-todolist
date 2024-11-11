@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
@@ -10,13 +10,16 @@ function Navbar() {
         "/todolist": "todo"
     }
 
-    // state for active page - will highlight behind active page in navbar
-    const [activePage, setActivePage] = useState(destinationToPage[useLocation().pathname]);
+    // current path in the website (e.g: / or /todolist)
+    const destination = useLocation().pathname;
 
-    // function to update activePage on click
-    const handlePageChange = (page) => {
-        setActivePage(page);
-    }
+    // state for active page - will highlight behind active page in navbar
+    const [activePage, setActivePage] = useState(destinationToPage[destination]);
+
+    // set new active page whenever component mounts
+    useEffect(() => {
+        setActivePage(destinationToPage[destination]);
+    })
 
     return (
         <nav className="navbar">
@@ -25,13 +28,11 @@ function Navbar() {
                     isActive={activePage === "home"} 
                     itemName="Home" 
                     destination="/"
-                    onClick={() => handlePageChange("home")}
                 />
                 <NavbarItem 
                     isActive={activePage === "todo"} 
                     itemName="Todolist" 
                     destination="/todolist"
-                    onClick={() => handlePageChange("todo")}
                 />
             </ul>
         </nav>
@@ -41,12 +42,12 @@ function Navbar() {
 function NavbarItem(props) {
 
     // destructuring props
-    const { isActive, itemName, destination, onClick } = props;
+    const { isActive, itemName, destination } = props;
 
     // adds 'active' class if set in props, will highlight behind navbar option
     return (
         <li className={`navbar-item ${isActive ? "active" : ""}`}>
-            <Link to={destination} onClick={onClick}>
+            <Link to={destination}>
                 {itemName}
             </Link>
         </li>

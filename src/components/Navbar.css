@@ -16,12 +16,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .navbar-item {
     color: var(--navbar-text-color);
     padding: 7px;
+    font-family: Verdana, sans-serif;
+    font-size: 1.2rem;
 }
 
 .navbar-item.active {
