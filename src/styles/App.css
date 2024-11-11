@@ -6,4 +6,7 @@
   position: relative;
   top: var(--navbar-height);
   left: 0;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
