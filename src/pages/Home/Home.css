@@ -14,16 +14,19 @@
 
 #home-header {
     font-size: calc(1.8vw + 2.15rem);
+    font-family: var(--header-font);
 }
 
 #made-by {
     font-size: calc(0.7vw + 0.5rem);
     font-style: italic;
     margin-top: 2px;
+    font-family: var(--text-font);
 }
 
 #description {
     font-size: calc(0.6vw + 0.7rem);
     width: 70ch;
     margin-top: calc(1.8vw + 0.6rem); 
+    font-family: var(--text-font);
 }
