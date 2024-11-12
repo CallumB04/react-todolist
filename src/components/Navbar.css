@@ -22,7 +22,7 @@
 .navbar-item {
     color: var(--navbar-text-color);
     padding: 7px;
-    font-family: Verdana, sans-serif;
+    font-family: var(--navbar-font);
     font-size: 1.2rem;
 }
 

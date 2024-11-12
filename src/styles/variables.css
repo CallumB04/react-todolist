@@ -1,7 +1,26 @@
+/* Fonts used across all pages */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 :root {
     /* Navbar */
     --navbar-height: 70px;
     --navbar-color: #1c2e4a;
     --navbar-text-color: #f3f3f3;
     --navbar-highlight-color: #294470;
+    --navbar-font: "League Spartan", Verdana, sans-serif;
+
+    /* Pages */
+    --text-color: #0e0e0e;
+    --background-color: linear-gradient(to bottom right, #f7f7f7, #f5f5f5);
+
+    --header-font: Lato;
+    --text-font: "League Spartan";
+    --button-font: Arial;
+
+    /* Home Page */
+    --home-btn-hover-color: #1c2e4ae7;
+    --home-btn-hover-text-color: #f3f3f3;
+    /* Todolist Page */
+
 }

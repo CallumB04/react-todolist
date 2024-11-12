@@ -1,0 +1,32 @@
+#home-page {
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#home-header, #made-by, #description {
+    max-width: 80%;
+}
+
+#home-header {
+    font-size: calc(1.6vw + 2.5rem);
+    font-family: var(--header-font);
+}
+
+#made-by {
+    font-size: calc(0.5vw + 0.7rem);
+    margin-top: 2px;
+    font-family: var(--text-font);
+}
+
+#description {
+    font-size: calc(0.6vw + 0.7rem);
+    font-style: italic;
+    width: 70ch;
+    margin-top: calc(2rem - 0.5vw); 
+    font-family: var(--text-font);
+}
