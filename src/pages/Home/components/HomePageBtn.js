@@ -7,7 +7,7 @@ const HomePageBtn = () => {
         <Link to="/todolist">
             <button type="button" id="home-page-btn">
                 <p id="home-page-btn-text">
-                    Get Started <i class="fa-solid fa-arrow-right"></i>
+                    Get Started <i className="fa-solid fa-arrow-right"></i>
                 </p>
             </button>
         </Link>
