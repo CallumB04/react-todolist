@@ -19,9 +19,8 @@
     --button-font: Arial;
 
     /* Home Page */
-    --home-btn-color: #87b2f8;
-    --home-btn-hover-color: #79a1e2;
-
+    --home-btn-hover-color: #1c2e4ae7;
+    --home-btn-hover-text-color: #f3f3f3;
     /* Todolist Page */
 
 }
