@@ -7,6 +7,6 @@
   top: var(--navbar-height);
   left: 0;
 
-  background-color: var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
 }
