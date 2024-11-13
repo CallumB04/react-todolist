@@ -1,5 +1,9 @@
-#home-page-btn {
+a {
     margin-top: calc(2vw + 2.5rem);
+}
+
+#home-page-btn {
+    
     width: calc(4.5vw + 16rem);
     height: calc(0.8vw + 4rem);
     position: relative;
