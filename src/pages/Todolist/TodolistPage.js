@@ -1,7 +1,7 @@
-import "./Todolist.css"
+import "./TodolistPage.css"
 import React from 'react';
 
-function Todolist() {
+function TodolistPage() {
 
     return (
         <main className="main">
@@ -10,4 +10,4 @@ function Todolist() {
     );
 }
 
-export default Todolist;
+export default TodolistPage;

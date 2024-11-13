@@ -1,9 +1,9 @@
 
-import "./Home.css"
+import "./HomePage.css"
 import React from 'react';
 import HomePageBtn from './components/HomePageBtn';
 
-function Home() {
+function HomePage() {
 
     return (
         <main className="main">
@@ -21,4 +21,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default HomePage;
