@@ -11,8 +11,10 @@
 .todolist-item {
     width: 100%;
     border: 2px solid #111;
+    border-radius: 10px;
     height: 120px;
     padding: 10px 0 0 15px;
+    color: var(--text-color);
 }
 
 /* TODO: add proper styling for status's */
@@ -22,4 +24,26 @@
 
 .todolist-item.status-complete {
     background-color: lightpink;
+}
+
+.todolist-item.add-task-button {
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--header-font);
+    background-color: transparent;
+}
+
+.todolist-item.add-task-button:hover {
+    background-color: #e9e9e9;
+    cursor: pointer;
+}
+
+.add-task-button-text {
+    font-size: calc(0.9vw + 1.6rem);
+}
+
+.add-task-button-icon {
+    font-size: calc(1.3vw + 1.9rem);
 }

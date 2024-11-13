@@ -16,11 +16,20 @@ function Todolist() {
     const addTask = (newTask) => {
         const newTaskList = [...tasks, newTask];
         setTasks(newTaskList);
+        incrementTaskID();
     };
     const removeTask = (taskToRemove) => {
         const newTaskList = tasks.filter(task => task.id !== taskToRemove.id);
         setTasks(newTaskList);
     };
+
+    // functions to switch between task add button and form
+    const startAddingTask = () => {
+        setAddingTask(true);
+    }
+    const finishAddingTask = () => {
+        setAddingTask(false);
+    }
 
     // function to increase task ID when new task is added
     const incrementTaskID = () => {
@@ -41,7 +50,11 @@ function Todolist() {
                 );
             })}
 
-            {isAddingTask ? <AddTaskForm /> : <AddTaskButton />}
+            {
+                isAddingTask 
+                ? <AddTaskForm /> 
+                : <AddTaskButton onClick={startAddingTask}/>
+            }
         </div>
     );
     
