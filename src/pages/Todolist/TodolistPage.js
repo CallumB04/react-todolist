@@ -1,11 +1,13 @@
 import "./TodolistPage.css"
 import React from 'react';
+import Todolist from './components/Todolist';
 
 function TodolistPage() {
 
     return (
         <main className="main">
-            <h1>Todolist Page</h1>
+            <h1>My Todolist</h1>
+            <Todolist />
         </main>
     );
 }
