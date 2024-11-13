@@ -19,10 +19,14 @@
     gap: 30px;
 }
 
+.navbar a {
+    padding: 10px;
+}
+
 .navbar-item {
     color: var(--navbar-text-color);
-    padding: 7px;
     font-family: var(--navbar-font);
+    padding: 5px 0;
     font-size: 1.2rem;
 }
 
