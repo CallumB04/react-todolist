@@ -72,7 +72,6 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
             </div>
 
             <div id="form-buttons">
-                <div></div>
                 <button type="submit">Add Task</button>
 
                 <button 

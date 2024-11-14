@@ -131,16 +131,13 @@
 }
 
 #add-task-form #form-buttons {
-    margin-top: 50px;
+    margin-top: 45px;
     display: flex;
     justify-content: space-evenly;
 }
 
-#add-task-form #form-buttons div {
-    width: calc(22% - 3vw);
-}
-
 #add-task-form button {
+    width: calc(40% - 5vw);
     height: calc(40px + 0.2vw);
     border: none;
     border-radius: 50px;
@@ -154,7 +151,6 @@
 }
 
 #add-task-form button[type="submit"] {
-    width: 45%;
     color: #f7f7f7;
     background-color: var(--navbar-highlight-color);
 }
@@ -165,7 +161,6 @@
 
 #add-task-form #cancel-btn {
     color: var(--text-color);
-    width: calc(22% - 3vw);
     background-color: #e1e1e1;
 }
 
