@@ -36,6 +36,10 @@ function Todolist() {
         setNextTaskID(nextTaskID + 1);
     };
 
+    const handleFormSubmit = (newTask) => {
+
+    }
+
     return (
         <div id="todolist">
             {tasks.map((task, index) => {
@@ -52,7 +56,7 @@ function Todolist() {
 
             {
                 isAddingTask 
-                ? <AddTaskForm /> 
+                ? <AddTaskForm onSubmit={handleFormSubmit}/> 
                 : <AddTaskButton onClick={startAddingTask}/>
             }
         </div>
