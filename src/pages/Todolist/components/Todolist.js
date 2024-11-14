@@ -82,7 +82,7 @@ function Todolist() {
 
             {
                 isAddingTask 
-                ? <AddTaskForm onSubmit={handleFormSubmit}/> 
+                ? <AddTaskForm onSubmit={handleFormSubmit} cancelAddingTask={finishAddingTask}/> 
                 : <AddTaskButton onClick={startAddingTask}/>
             }
         </div>

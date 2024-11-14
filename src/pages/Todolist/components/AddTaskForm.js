@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ExclamationIcon = () => <i class="fa-solid fa-exclamation" style={{color: "#ff3030"}} />;
 
-function AddTaskForm({ onSubmit }) {
+function AddTaskForm({ onSubmit, cancelAddingTask }) {
     
     // Form input values in state
     const [ titleInput, setTitleInput ] = useState('');
@@ -71,7 +71,17 @@ function AddTaskForm({ onSubmit }) {
                 </label>
             </div>
 
-            <button type="submit">Add Task</button>
+            <div id="form-buttons">
+                <div></div>
+                <button type="submit">Add Task</button>
+
+                <button 
+                    type="button" 
+                    id="cancel-btn"
+                    onClick={cancelAddingTask}>
+                    Cancel
+                </button>
+            </div>
         </form>
     );
 }
