@@ -100,6 +100,33 @@
     font-size: calc(0.3vw + 1.3rem);
 }
 
+.todolist-item.clear-tasks-button {
+    font-family: var(--header-font);
+    width: calc(36% - 12vw);
+    height: 50px;
+}
+
+@media (max-width: 450px) {
+    .todolist-item.clear-tasks-button {
+        padding: 0 calc(5px + 1vw);
+    }
+}
+
+.todolist-item.clear-tasks-button:hover {
+    background-color: var(--todolist-item-bg-color-hover);
+    cursor: pointer;
+}
+
+.clear-tasks-button-text {
+    font-size: calc(0.1vw + 0.7rem);
+    padding-right: 10px;
+}
+
+.clear-tasks-button-icon {
+    font-size: calc(0.2vw + 1rem);
+    padding-right: 2px;
+}
+
 #add-task-form {
     display: flex;
     flex-direction: column;

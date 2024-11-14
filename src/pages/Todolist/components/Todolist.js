@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Task from './Task';
 import AddTaskForm from './AddTaskForm';
 import AddTaskButton from './AddTaskButton';
+import ClearTasksButton from './ClearTasksButton';
 
 function Todolist() {
 
@@ -45,6 +46,9 @@ function Todolist() {
         const newTaskList = tasks.filter(task => task.id !== taskToRemove.id);
         setTasks(newTaskList);
     };
+    const clearTasks = () => {
+        setTasks([]);
+    }
 
     // functions to switch between task add button and form
     const startAddingTask = () => {
@@ -79,12 +83,18 @@ function Todolist() {
                     />
                 );
             })}
-
+            
             {
                 isAddingTask 
                 ? <AddTaskForm onSubmit={handleFormSubmit} cancelAddingTask={finishAddingTask}/> 
                 : <AddTaskButton onClick={startAddingTask}/>
             }
+            {
+                tasks.length > 0
+                ? <ClearTasksButton onClick={clearTasks}/>
+                : null
+            }
+            
         </div>
     );
     
