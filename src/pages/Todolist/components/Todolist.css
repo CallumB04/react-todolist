@@ -18,6 +18,19 @@
     background-color: var(--todolist-item-bg-color);
 }
 
+.todolist-item:not(#add-task-form) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todolist-item .delete-task-btn {
+    font-size: calc(1.2vw + 0.9rem);
+    align-self: baseline;
+    padding-top: 2px;
+    border-radius: 5px;
+}
+
 /* TODO: add proper styling for status's */
 .todolist-item.status-active {
     background-color: lightgreen;
@@ -29,9 +42,6 @@
 
 .todolist-item.add-task-button {
     padding: 0 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     font-family: var(--header-font);
 }
 
