@@ -37,7 +37,9 @@ function Todolist() {
     };
 
     const handleFormSubmit = (newTask) => {
-
+        newTask.id = nextTaskID;
+        addTask(newTask);
+        finishAddingTask();
     }
 
     return (
