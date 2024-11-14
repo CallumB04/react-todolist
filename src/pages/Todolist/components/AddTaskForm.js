@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ExclamationIcon = () => <i class="fa-solid fa-exclamation" style={{color: "#ff3030"}} />;
+const ExclamationIcon = () => <i className="fa-solid fa-exclamation" style={{color: "#ff3030"}} />;
 
 function AddTaskForm({ onSubmit, cancelAddingTask }) {
     
