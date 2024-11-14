@@ -14,10 +14,10 @@ function Todolist() {
     // Loading todolist from localStorage whenever component mounts
     useEffect(
         () => {
-            const todolist = JSON.parse(localStorage.getItem("todolist"));
+            const todolist = JSON.parse(localStorage.getItem("todolist")) || [];
 
             // if localStorage contains tasks, set to state values
-            if (todolist.length > 0) { 
+            if (todolist.length) { 
                 setTasks(todolist); 
 
                 // ensures no ID's overlap
