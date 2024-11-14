@@ -1,8 +1,8 @@
 import './styles/App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Todolist from './pages/Todolist/Todolist';
+import HomePage from './pages/Home/HomePage';
+import TodolistPage from './pages/Todolist/TodolistPage';
 import Navbar from './components/Navbar'
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/todolist" element={<Todolist />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/todolist" element={<TodolistPage />} />
       </Routes>
     </Router>
   );

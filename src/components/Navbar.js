@@ -1,17 +1,14 @@
 import "./Navbar.css";
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-function Navbar() {
+// map of url pathnames to pages, to initialise activePage with correct page
+const destinationToPage = {
+    "/": "home",
+    "/todolist": "todo"
+};
 
-    // map of url pathnames to pages, to initialise activePage with correct page
-    // useMemo() -> ensure object only created once
-    const destinationToPage = useMemo(() => {
-        return {
-            "/": "home",
-            "/todolist": "todo"
-        }
-    }, []);
+function Navbar() {
 
     // current path in the website (e.g: / or /todolist)
     const destination = useLocation().pathname;
@@ -22,7 +19,7 @@ function Navbar() {
     // set new active page whenever component mounts
     useEffect(() => {
         setActivePage(destinationToPage[destination]);
-    }, [destination, destinationToPage])
+    }, [destination])
 
     return (
         <nav className="navbar">

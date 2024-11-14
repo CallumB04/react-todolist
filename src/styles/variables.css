@@ -16,11 +16,15 @@
 
     --header-font: Lato;
     --text-font: "League Spartan";
-    --button-font: Arial;
+    --button-font: "League Spartan";
+    --input-font: Lato;
 
     /* Home Page */
     --home-btn-hover-color: #1c2e4ae7;
     --home-btn-hover-text-color: #f3f3f3;
+
     /* Todolist Page */
+    --todolist-item-bg-color: transparent;
+    --todolist-item-bg-color-hover: #eaeaea;
 
 }
