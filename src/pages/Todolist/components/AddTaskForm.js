@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const ExclamationIcon = () => <i class="fa-solid fa-exclamation" style={{color: "#ff3030"}} />;
+
 function AddTaskForm({ onSubmit }) {
     
     // Form input values in state
@@ -51,11 +53,11 @@ function AddTaskForm({ onSubmit }) {
                     <input 
                         type="radio"
                         name="status"
-                        value="pending"
-                        checked={ statusInput === "pending" }
+                        value="important"
+                        checked={ statusInput === "important" }
                         onChange={ (event) => setStatusInput(event.target.value) }
                     />
-                    Pending
+                    Important <ExclamationIcon /><ExclamationIcon />
                 </label>
                 <label>
                     <input 

@@ -65,6 +65,10 @@
     
 }
 
+.todolist-item.status-important {
+
+}
+
 .todolist-item.status-complete {
     
 }
@@ -114,6 +118,10 @@
     font-size: 1.1rem;
 
     margin-top: 15px;
+}
+
+.fa-exclamation {
+    font-size: calc(0.2vw + 0.9rem);
 }
 
 #add-task-form #task-form-radios input {
