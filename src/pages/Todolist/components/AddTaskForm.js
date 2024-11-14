@@ -15,7 +15,8 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
         const newTask = { // constructing new task (id will be added in parent)
             title: titleInput,
             description: descInput,
-            status: statusInput
+            status: statusInput,
+            completed: false
         }
 
         onSubmit(newTask); // submit task back to Todolist component

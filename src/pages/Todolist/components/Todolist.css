@@ -74,6 +74,10 @@
     
 }
 
+.todolist-item.completed-task {
+    
+}
+
 .todolist-item.add-task-button {
     padding: 0 calc(12px + 1vw);
     font-family: var(--header-font);

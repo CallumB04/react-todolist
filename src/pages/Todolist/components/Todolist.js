@@ -79,6 +79,7 @@ function Todolist() {
                         title={task.title} 
                         description={task.description}
                         status={task.status}
+                        completed={task.completed}
                         removeTask={removeTask}
                     />
                 );
