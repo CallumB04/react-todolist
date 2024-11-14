@@ -146,6 +146,7 @@
     border-radius: 50px;
     font-family: var(--input-font);
     font-size: 0.8rem;
+    transition: background-color 200ms ease;
 }
 
 #add-task-form button:hover {
@@ -158,8 +159,16 @@
     background-color: var(--navbar-highlight-color);
 }
 
+#add-task-form button[type="submit"]:hover {
+    background-color: #33558b;
+}
+
 #add-task-form #cancel-btn {
     color: var(--text-color);
     width: calc(22% - 3vw);
-    background: #e1e1e1;
+    background-color: #e1e1e1;
+}
+
+#add-task-form #cancel-btn:hover {
+    background-color: #d8d8d8;
 }
