@@ -63,11 +63,11 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                     <input 
                         type="radio"
                         name="status"
-                        value="complete"
-                        checked={ statusInput === "complete" }
+                        value="low-priority"
+                        checked={ statusInput === "low-priority" }
                         onChange={ (event) => setStatusInput(event.target.value) }
                     />
-                    Complete
+                    Low Priority
                 </label>
             </div>
 
