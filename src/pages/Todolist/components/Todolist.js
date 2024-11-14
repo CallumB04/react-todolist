@@ -1,5 +1,5 @@
 import './Todolist.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Task from './Task';
 import AddTaskForm from './AddTaskForm';
 import AddTaskButton from './AddTaskButton';
@@ -9,7 +9,30 @@ function Todolist() {
     // State values
     const [ tasks, setTasks ] = useState([]); // tasks in todolist - array of objects
     const [ isAddingTask, setAddingTask ] = useState(false); // boolean value, if user is currently adding task (form open)
-    const [ nextTaskID, setNextTaskID ] = useState(1);
+    const [ nextTaskID, setNextTaskID ] = useState(0);
+
+    // Loading todolist from localStorage whenever component mounts
+    useEffect(
+        () => {
+            const todolist = JSON.parse(localStorage.getItem("todolist"));
+
+            // if localStorage contains tasks, set to state values
+            if (todolist.length > 0) { 
+                setTasks(todolist); 
+
+                // ensures no ID's overlap
+                const maxTaskID = Math.max(0, ...todolist.map(task => task.id));
+                setNextTaskID(maxTaskID + 1);
+            }
+        }, []
+    );
+
+    // Save todolist to localStorage whenever changes are made
+    useEffect(
+        () => {
+            localStorage.setItem("todolist", JSON.stringify(tasks));
+        }, [tasks]
+    );
 
     // Task handler functions
     // TODO: make editTask function
