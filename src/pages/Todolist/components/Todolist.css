@@ -159,6 +159,7 @@
     border-radius: 0;
     background-color: transparent;
     margin-bottom: 15px;
+    padding-left: 5px;
     font-family: var(--input-font);
     font-size: 1rem;
     position: relative;
