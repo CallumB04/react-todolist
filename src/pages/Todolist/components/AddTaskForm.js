@@ -16,7 +16,8 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
             title: titleInput,
             description: descInput,
             status: statusInput,
-            completed: false
+            completed: false,
+            open: false
         }
 
         onSubmit(newTask); // submit task back to Todolist component

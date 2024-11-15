@@ -53,6 +53,14 @@ function Todolist() {
         })
         setTasks(newTaskList);
     }
+    const openTask = (taskToOpen) => {
+        const newTaskList = tasks.map(task => {
+            if (task.id === taskToOpen.id) { task.open = !task.open; }
+            else { task.open = false; }
+            return task;
+        })
+        setTasks(newTaskList);
+    }
     const clearTasks = () => {
         setTasks([]);
     }
@@ -87,8 +95,10 @@ function Todolist() {
                         description={task.description}
                         status={task.status}
                         completed={task.completed}
+                        open={task.open}
                         removeTask={removeTask}
                         completeTask={completeTask}
+                        openTask={openTask}
                     />
                 );
             })}
