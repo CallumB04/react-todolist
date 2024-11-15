@@ -17,6 +17,7 @@
     padding: 0px 10px;
     color: var(--text-color);
     background-color: var(--todolist-item-bg-color);
+    transition: height 250ms ease-in-out;
 }
 
 .todolist-item-content {
@@ -46,16 +47,27 @@
     max-width: 75%;
 }
 
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.todolist-item.task-open .todolist-item-title, .todolist-item.task-open .todolist-item-desc {
+    animation: 400ms appear ease-in-out;
+}
+
 .todolist-item .todolist-item-buttons {
     display: flex;
     flex-direction: row-reverse;
     gap: 7px;
     padding-right: 3px;
-}
-
-.todolist-item.task-open .todolist-item-buttons {
-    flex-direction: column-reverse;
-    row-gap: 50px;
+    height: 100%;
+    align-items: baseline;
+    padding-top: calc(6px - 0.2vw);
 }
 
 .todolist-item:not(#add-task-form) {
@@ -109,14 +121,6 @@
 .todolist-item .complete-task-btn::after {
     content: "Complete";
     left: calc(-1.2vw - 61px);
-}
-
-.todolist-item.task-open .delete-task-btn::after {
-    left: calc(-0.8vw - 42px);
-} 
-
-.todolist-item.task-open .complete-task-btn::after {
-    left: calc(-1.2vw - 62px);
 }
 
 .todolist-item .delete-task-btn:hover::after, .todolist-item .complete-task-btn:hover::after {
