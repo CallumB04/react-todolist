@@ -8,10 +8,9 @@ function Task(props) {
     
     return (
         <div className={`todolist-item status-${status} ${completed ? "completed-task" : ""}`}>
-            <div>
+            <div className="todolist-item-content">
                 <h2 className="todolist-item-title">{capitalize(title)}</h2>
                 <p className="todolist-item-desc">{capitalize(description)}</p>
-                <p className="todolist-item-id">#{id}</p>
             </div>
 
             <div className="todolist-item-buttons">
