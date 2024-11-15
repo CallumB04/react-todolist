@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Task(props) {
-    const { title, description, status, id, completed, removeTask } = props;
+    const { title, description, status, id, completed, removeTask, completeTask } = props;
 
     // function to ensure first letter of string is capitalized
     const capitalize = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
@@ -14,10 +14,16 @@ function Task(props) {
                 <p className="todolist-item-id">#{id}</p>
             </div>
 
-            <i
-                className="fa-solid fa-trash delete-task-btn"
-                onClick={() => {removeTask({id: id})}}>
-            </i>
+            <div className="todolist-item-buttons">
+                <i
+                    className="fa-solid fa-trash delete-task-btn"
+                    onClick={() => {removeTask({id: id})}}>
+                </i>
+                <i
+                    className="fa-solid fa-check complete-task-btn"
+                    onClick={() => {completeTask({id: id})}}>
+                </i>
+            </div>
         </div>
     );
 }

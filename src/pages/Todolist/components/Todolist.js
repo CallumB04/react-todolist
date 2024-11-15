@@ -46,6 +46,13 @@ function Todolist() {
         const newTaskList = tasks.filter(task => task.id !== taskToRemove.id);
         setTasks(newTaskList);
     };
+    const completeTask = (taskToComplete) => {
+        const newTaskList = tasks.map(task => {
+            if (task.id === taskToComplete.id) { task.completed = true; }
+            return task;
+        })
+        setTasks(newTaskList);
+    }
     const clearTasks = () => {
         setTasks([]);
     }
@@ -81,6 +88,7 @@ function Todolist() {
                         status={task.status}
                         completed={task.completed}
                         removeTask={removeTask}
+                        completeTask={completeTask}
                     />
                 );
             })}
