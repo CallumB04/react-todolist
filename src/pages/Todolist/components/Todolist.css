@@ -1,3 +1,4 @@
+/* Overall todolist styling */
 #todolist {
     width: min(900px, 90vw);
     margin: 0 auto;
@@ -13,21 +14,74 @@
     width: 100%;
     border: 2px solid #111;
     border-radius: 10px;
-    height: 80px;
-    padding: 10px 15px;
+    height: 40px;
+    padding: 0px 10px;
     color: var(--text-color);
     background-color: var(--todolist-item-bg-color);
+    transition: height 250ms ease-in-out;
 }
 
-.todolist-item:not(#add-task-form) {
+.todolist-item-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.todolist-item.task-open .todolist-item-content {
+    display: block;
+    padding-top: 5px;
+}
+
+.todolist-item-title {
+    font-size: calc(0.2vw + 1.3rem);
+    padding-left: 5px;
+}
+
+.todolist-item.task-open .todolist-item-title {
+    padding-left: 0px;
+}
+
+.todolist-item-desc {
+    font-size: calc(0.1vw + 0.8rem);
+    max-width: 75%;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fades in task content when task is opened */
+.todolist-item.task-open .todolist-item-title, .todolist-item.task-open .todolist-item-desc {
+    animation: 400ms appear ease-in-out;
+}
+
+/* Styles for todolist item buttons */
+
+.todolist-item .todolist-item-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 7px;
+    padding-right: 3px;
+    height: 100%;
+    align-items: baseline;
+    padding-top: calc(6px - 0.2vw);
+}
+
+.todolist-item:not(.task-form) {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.todolist-item .delete-task-btn {
-    font-size: calc(0.3vw + 1.2rem);
-    align-self: baseline;
+.todolist-item .task-btn {
+    font-size: calc(0.3vw + 1.15rem);
     padding-top: 4px;
     border-radius: 5px;
     position: relative;
@@ -35,13 +89,12 @@
     transition: color 0.2s ease;
 }
 
-.todolist-item .delete-task-btn:hover {
+.todolist-item .task-btn:hover {
     cursor: pointer;
     color: #222;
 }
 
-.todolist-item .delete-task-btn::after {
-    content: "Delete";
+.todolist-item .task-btn::after {
     width: max-content;
     height: max-content;
     font-size: calc(0.25vw + 0.9rem);
@@ -50,29 +103,117 @@
     color: #222;
     position: absolute;
     top: 50%;
-    left: calc(-0.8vw - 42px);
     translate: 0 -35%;
     opacity: 0;
     transition: opacity 100ms ease;
     pointer-events: none;
 }
 
-.todolist-item .delete-task-btn:hover::after {
+.todolist-item .fa-chevron-down { /* open task button */
+    transition: transform 250ms ease-in-out;
+}
+
+.todolist-item.task-open .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* text showed beside task buttons when hovered */
+
+.todolist-item .delete-task-btn::after {
+    content: "Delete";
+    left: calc(-1.4vw - 90px);
+}
+
+.todolist-item .complete-task-btn::after {
+    content: "Complete";
+    left: calc(-1.2vw - 61px);
+}
+
+.todolist-item .edit-task-btn::after {
+    content: "Edit";
+    left: calc(-1vw - 51px);
+}
+
+.todolist-item.task-editing .delete-task-btn::after {
+    content: "Delete";
+    left: calc(-1.1vw - 64px);
+}
+
+.todolist-item.completed-task .edit-task-btn::after {
+    left: calc(-0.4vw - 33px);  
+}
+
+.todolist-item.completed-task .delete-task-btn::after {
+    left: calc(-0.95vw - 70px);  
+}
+
+.todolist-item.task-editing.completed-task .delete-task-btn::after {
+    left: calc(-0.65vw - 45px);  
+}
+
+.todolist-item .delete-task-btn:hover::after, 
+.todolist-item .complete-task-btn:hover::after,
+.todolist-item .edit-task-btn:hover::after {
     opacity: 1;
 }
 
-/* TODO: add proper styling for status's */
-.todolist-item.status-active {
+/* task states (completed, open, editing) */
+
+.todolist-item.completed-task {
+    background-color: green;
+}
+
+.todolist-item.task-open {
+    height: 120px;
+}
+
+.todolist-item.task-editing {
+    background-color: blue;
+}
+
+/* Priority based styling */
+
+.todolist-item.priority-1 {
     
 }
 
-.todolist-item.status-important {
-
-}
-
-.todolist-item.status-complete {
+.todolist-item.priority-2 {
     
 }
+
+.todolist-item.priority-3 {
+    
+}
+
+.todolist-item.priority-4 {
+    
+}
+
+.todolist-item.priority-5 {
+    
+}
+
+.todolist-item.priority-6 {
+    
+}
+
+.todolist-item.priority-7 {
+    
+}
+
+.todolist-item.priority-8 {
+    
+}
+
+.todolist-item.priority-9 {
+    
+}
+
+.todolist-item.priority-10 {
+    
+}
+
+/* 'Add new Task' button */
 
 .todolist-item.add-task-button {
     padding: 0 calc(12px + 1vw);
@@ -99,6 +240,8 @@
 .add-task-button-icon {
     font-size: calc(0.3vw + 1.3rem);
 }
+
+/* 'Clear Tasks' button */
 
 .todolist-item.clear-tasks-button {
     font-family: var(--header-font);
@@ -127,14 +270,17 @@
     padding-right: 2px;
 }
 
-#add-task-form {
+/* styles for add and edit task forms */
+
+.task-form {
     display: flex;
     flex-direction: column;
     font-family: var(--text-font);
     height: 300px;
+    padding-top: 5px;
 }
 
-#add-task-form input[type="text"] {
+.task-form input[type="text"] {
     width: 100%;
     height: 50px;
     border: none;
@@ -142,37 +288,38 @@
     border-radius: 0;
     background-color: transparent;
     margin-bottom: 15px;
+    padding-left: 5px;
     font-family: var(--input-font);
     font-size: 1rem;
     position: relative;
 }
 
-#add-task-form #task-form-radios {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: 1.1rem;
-
+.task-form .priority-range {
+    margin: 0 auto;
     margin-top: 15px;
+    width: 90%;
+    max-width: 650px;
+
+    display: flex;
+    flex-direction: column-reverse;
+
 }
 
-.fa-exclamation {
-    font-size: calc(0.2vw + 0.9rem);
+.task-form .priority-range .priority-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    user-select: none;
 }
 
-#add-task-form #task-form-radios input {
-    margin-right: 10px;
-    accent-color: var(--navbar-highlight-color);
-    scale: 1.2;
-}
 
-#add-task-form #form-buttons {
-    margin-top: 45px;
+.task-form .form-buttons {
+    margin-top: calc(38px - 0.4vw);
     display: flex;
     justify-content: space-evenly;
 }
 
-#add-task-form button {
+.task-form button {
     width: calc(40% - 5vw);
     height: calc(40px + 0.2vw);
     border: none;
@@ -182,24 +329,24 @@
     transition: background-color 200ms ease;
 }
 
-#add-task-form button:hover {
+.task-form button:hover {
     cursor: pointer;
 }
 
-#add-task-form button[type="submit"] {
+.task-form button[type="submit"] {
     color: #f7f7f7;
     background-color: var(--navbar-highlight-color);
 }
 
-#add-task-form button[type="submit"]:hover {
+.task-form button[type="submit"]:hover {
     background-color: #33558b;
 }
 
-#add-task-form #cancel-btn {
+.task-form .cancel-btn {
     color: var(--text-color);
     background-color: #d8d8d8;
 }
 
-#add-task-form #cancel-btn:hover {
+.task-form .cancel-btn:hover {
     background-color: #e1e1e1;
 }

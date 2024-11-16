@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
 
-function AddTaskForm({ onSubmit, cancelAddingTask }) {
+function EditTaskForm(props) {
+
+    const { title, description, priority, id, editTask, cancelEditingTask } = props;
     
     // Form input values in state
-    const [ titleInput, setTitleInput ] = useState('');
-    const [ descInput, setDescInput ] = useState('');
-    const [ priorityInput, setPriorityInput ] = useState('1');
+    const [ newTitleInput, setNewTitle ] = useState(title);
+    const [ newDescInput, setNewDesc ] = useState(description);
+    const [ newPriorityInput, setNewPriority ] = useState(priority);
 
-    // Function called when form is submitted, creates new task. Ready to be added
     const handleSubmit = (event) => {
         event.preventDefault(); // stop page refresh
 
         const newTask = { // constructing new task (id will be added in parent)
-            title: titleInput,
-            description: descInput,
-            priority: priorityInput,
+            title: newTitleInput,
+            description: newDescInput,
+            priority: newPriorityInput,
             completed: false,
-            open: false,
-            editing: false
+            id: id
         }
 
-        onSubmit(newTask); // submit task back to Todolist component
+        editTask(newTask); // submit task back to Todolist component
     }
 
     return (
-        <form onSubmit={handleSubmit} className="todolist-item task-form" id="add-task-form">
+        <form onSubmit={handleSubmit} className="todolist-item task-form" id="edit-task-form">
             <input 
                 type="text"
-                value={titleInput}
-                placeholder="Enter new task..."
-                onChange={ (event) => setTitleInput(event.target.value) }
+                value={newTitleInput}
+                placeholder="Edit task title..."
+                onChange={ (event) => setNewTitle(event.target.value) }
                 required
             />
             <input 
                 type="text"
-                value={descInput}
-                placeholder="Enter task description..."
-                onChange={ (event) => setDescInput(event.target.value) }
+                value={newDescInput}
+                placeholder="Edit task description..."
+                onChange={ (event) => setNewDesc(event.target.value) }
                 required
             />
 
@@ -45,8 +45,8 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                     type="range" 
                     min="1" 
                     max="10" 
-                    value={priorityInput}
-                    onChange={ (event) => setPriorityInput(event.target.value) }
+                    value={newPriorityInput}
+                    onChange={ (event) => setNewPriority(event.target.value) }
                 /> 
                 <span className="priority-label">
                     <span >1 <i>(low)</i></span>
@@ -55,18 +55,18 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                             fontWeight: "600", 
                             paddingLeft: "calc(12px + 0.2vw)"
                         }
-                    }> Priority: {priorityInput}</span>
+                    }> Priority: {newPriorityInput}</span>
                     <span>10 <i>(high)</i></span>
                 </span>
             </label>
 
             <div className="form-buttons">
-                <button type="submit">Add Task</button>
+                <button type="submit">Confirm</button>
 
                 <button 
                     type="button" 
                     className="cancel-btn"
-                    onClick={cancelAddingTask}>
+                    onClick={cancelEditingTask}>
                     Cancel
                 </button>
             </div>
@@ -74,4 +74,4 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
     );
 }
 
-export default AddTaskForm;
+export default EditTaskForm;
