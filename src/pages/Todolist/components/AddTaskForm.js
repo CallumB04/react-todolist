@@ -7,7 +7,7 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
     // Form input values in state
     const [ titleInput, setTitleInput ] = useState('');
     const [ descInput, setDescInput ] = useState('');
-    const [ statusInput, setStatusInput ] = useState('active');
+    const [ priorityInput, setPriorityInput ] = useState('active');
 
     const handleSubmit = (event) => {
         event.preventDefault(); // stop page refresh
@@ -15,9 +15,10 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
         const newTask = { // constructing new task (id will be added in parent)
             title: titleInput,
             description: descInput,
-            status: statusInput,
+            priority: priorityInput,
             completed: false,
-            open: false
+            open: false,
+            editing: false
         }
 
         onSubmit(newTask); // submit task back to Todolist component
@@ -44,30 +45,30 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                 <label>
                     <input 
                         type="radio"
-                        name="status"
+                        name="priority"
                         value="active"
-                        checked={ statusInput === "active" }
-                        onChange={ (event) => setStatusInput(event.target.value) }
+                        checked={ priorityInput === "active" }
+                        onChange={ (event) => setPriorityInput(event.target.value) }
                     />
                     Active
                 </label>
                 <label>
                     <input 
                         type="radio"
-                        name="status"
+                        name="priority"
                         value="important"
-                        checked={ statusInput === "important" }
-                        onChange={ (event) => setStatusInput(event.target.value) }
+                        checked={ priorityInput === "important" }
+                        onChange={ (event) => setPriorityInput(event.target.value) }
                     />
                     Important <ExclamationIcon /><ExclamationIcon />
                 </label>
                 <label>
                     <input 
                         type="radio"
-                        name="status"
+                        name="priority"
                         value="low-priority"
-                        checked={ statusInput === "low-priority" }
-                        onChange={ (event) => setStatusInput(event.target.value) }
+                        checked={ priorityInput === "low-priority" }
+                        onChange={ (event) => setPriorityInput(event.target.value) }
                     />
                     Low Priority
                 </label>

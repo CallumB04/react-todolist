@@ -1,13 +1,17 @@
 import React from 'react';
 
 function Task(props) {
-    const { title, description, status, id, completed, open, removeTask, completeTask, openTask } = props;
+    const { title, description, priority, id, completed, open, editing, 
+        removeTask, completeTask, openTask, startEditingTask } = props;
 
     // function to ensure first letter of string is capitalized
     const capitalize = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
     
     return (
-        <div className={`todolist-item status-${status} ${completed ? "completed-task" : ""} ${open ? "task-open" : ""}`}>
+        <div className={`todolist-item priority-${priority} 
+                        ${completed ? "completed-task" : ""} 
+                        ${open ? "task-open" : ""} 
+                        ${editing ? "task-editing" : ""}`}>
             <div className="todolist-item-content">
                 <i
                     className={`fa-solid fa-chevron-down task-btn open-task-btn`}
@@ -23,10 +27,20 @@ function Task(props) {
                     className="fa-solid fa-trash task-btn delete-task-btn"
                     onClick={() => {removeTask({id: id})}}>
                 </i>
-                <i
-                    className="fa-solid fa-check task-btn complete-task-btn"
-                    onClick={() => {completeTask({id: id})}}>
-                </i>
+                {!editing 
+                    ? <i
+                        className="fa-solid fa-pen task-btn edit-task-btn"
+                        onClick={() => {startEditingTask({id: id})}}>
+                    </i>
+                    : null
+                }
+                {!completed
+                    ? <i
+                        className="fa-solid fa-check task-btn complete-task-btn"
+                        onClick={() => {completeTask({id: id})}}>
+                    </i>
+                    : null
+                }
             </div>
         </div>
     );

@@ -52,7 +52,23 @@ function Todolist() {
             return task;
         })
         setTasks(newTaskList);
-    }
+    };
+    // const editTask = (newTask) => {
+    //     const { title, description, priority, completed, id } = newTask;
+
+    //     const newTaskList = tasks.map(
+    //         (task) => {
+    //             if (task.id === id) {
+    //                 task.title = title;
+    //                 task.description = description;
+    //                 task.priority = priority;
+    //                 task.completed = completed; 
+    //             } return task;
+    //         }
+    //     );
+
+    //     setTasks(newTaskList);
+    // };
     const openTask = (taskToOpen) => {
         const newTaskList = tasks.map(task => {
             if (task.id === taskToOpen.id) { task.open = !task.open; }
@@ -60,18 +76,32 @@ function Todolist() {
             return task;
         })
         setTasks(newTaskList);
-    }
+    };
     const clearTasks = () => {
         setTasks([]);
-    }
+    };
 
     // functions to switch between task add button and form
     const startAddingTask = () => {
         setAddingTask(true);
-    }
+    };
     const finishAddingTask = () => {
         setAddingTask(false);
-    }
+    };
+
+    const startEditingTask = (taskToEdit) => {
+        const newTaskList = tasks.map(
+            (task) => {
+                if (task.id === taskToEdit.id) {
+                    task.editing = true;
+                } else {
+                    task.editing = false;
+                }
+                return task;
+            }
+        );
+        setTasks(newTaskList);
+    };
 
     // function to increase task ID when new task is added
     const incrementTaskID = () => {
@@ -82,7 +112,7 @@ function Todolist() {
         newTask.id = nextTaskID;
         addTask(newTask);
         finishAddingTask();
-    }
+    };
 
     return (
         <div id="todolist">
@@ -93,12 +123,14 @@ function Todolist() {
                         id={task.id}
                         title={task.title} 
                         description={task.description}
-                        status={task.status}
+                        priority={task.priority}
                         completed={task.completed}
                         open={task.open}
+                        editing={task.editing}
                         removeTask={removeTask}
                         completeTask={completeTask}
                         openTask={openTask}
+                        startEditingTask={startEditingTask}
                     />
                 );
             })}
