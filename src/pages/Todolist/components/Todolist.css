@@ -18,7 +18,7 @@
     padding: 0px 10px;
     color: var(--text-color);
     background-color: var(--todolist-item-bg-color);
-    transition: height 250ms ease-in-out;
+    transition: height 250ms ease-in-out, box-shadow 0.15s ease-in-out, 
 }
 
 .todolist-item-content {
@@ -326,7 +326,7 @@
     border-radius: 50px;
     font-family: var(--input-font);
     font-size: 0.85rem;
-    transition: background-color 200ms ease;
+    transition: background-color 200ms ease, box-shadow 0.15s ease-in-out;
 }
 
 .task-form button:hover {
@@ -349,4 +349,14 @@
 
 .task-form .cancel-btn:hover {
     background-color: #e1e1e1;
+}
+
+/* casting shadows on tasks and certain elements */
+
+.todolist-item, .task-form button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todolist-item:hover, .task-form button:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
