@@ -48,7 +48,17 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                     max="10" 
                     value={priorityInput}
                     onChange={ (event) => setPriorityInput(event.target.value) }
-                /> <span className="priority-label"><span>1</span><span>Priority: {priorityInput}</span><span>10</span></span>
+                /> 
+                <span className="priority-label">
+                    <span >1 <i>(low)</i></span>
+                    <span style={
+                        {
+                            fontWeight: "600", 
+                            paddingLeft: "calc(12px + 0.2vw)"
+                        }
+                    }> Priority: {priorityInput}</span>
+                    <span>10 <i>(high)</i></span>
+                </span>
             </label>
 
             <div className="form-buttons">
