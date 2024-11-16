@@ -11,18 +11,20 @@ function Todolist() {
     // State values
     const [ tasks, setTasks ] = useState([]); // tasks in todolist - array of objects
     const [ isAddingTask, setAddingTask ] = useState(false); // boolean value, if user is currently adding task (form open)
-    const [ nextTaskID, setNextTaskID ] = useState(0);
+    const [ nextTaskID, setNextTaskID ] = useState(0); // increments with every task, ensures none have the same ID
 
     // Loading todolist from localStorage whenever component mounts
     useEffect(
         () => {
+            // loading todolist, or an empty array if todolist doesnt exist in localStorage
             const todolist = JSON.parse(localStorage.getItem("todolist")) || [];
 
             // if localStorage contains tasks, set to state values
             if (todolist.length) { 
                 setTasks(todolist); 
 
-                // ensures no ID's overlap
+                // finds the highest ID of a task, and starts incrementing from that point
+                // ensure's no ID's overlap after refreshing the page
                 const maxTaskID = Math.max(0, ...todolist.map(task => task.id));
                 setNextTaskID(maxTaskID + 1);
             }
@@ -36,17 +38,20 @@ function Todolist() {
         }, [tasks]
     );
 
-    // Task handler functions
-    // TODO: make editTask function
+    /* Task handler functions */
+    
+    // Adds a new task to todolist
     const addTask = (newTask) => {
         const newTaskList = [...tasks, newTask];
         setTasks(newTaskList);
         incrementTaskID();
     };
+    // Remove task from the todolist, using a given ID
     const removeTask = (taskToRemove) => {
         const newTaskList = tasks.filter(task => task.id !== taskToRemove.id);
         setTasks(newTaskList);
     };
+    // Sets an active task as complete
     const completeTask = (taskToComplete) => {
         const newTaskList = tasks.map(task => {
             if (task.id === taskToComplete.id) { task.completed = true; }
@@ -54,6 +59,8 @@ function Todolist() {
         })
         setTasks(newTaskList);
     };
+    // Edits a task in the todolist with new given values
+    // Also currently removes completed after making changes
     const editTask = (newTask) => {
         const { title, description, priority, completed, id } = newTask;
 
@@ -71,6 +78,7 @@ function Todolist() {
 
         setTasks(newTaskList);
     };
+    // Sets task to open, increasing height and showing more information
     const openTask = (taskToOpen) => {
         const newTaskList = tasks.map(task => {
             if (task.id === taskToOpen.id) { task.open = !task.open; }
@@ -79,11 +87,12 @@ function Todolist() {
         })
         setTasks(newTaskList);
     };
+    // Empties the todolist
     const clearTasks = () => {
         setTasks([]);
     };
 
-    // functions to switch between task add button and form
+    // Functions to switch between displaying 'Add new Task' button and the Task adding form
     const startAddingTask = () => {
         setAddingTask(true);
         cancelEditingTask();
@@ -92,6 +101,8 @@ function Todolist() {
         setAddingTask(false);
     };
 
+    // Displays an editing form instead of the task of a given ID
+    // Allows for user to cancel or submit changes, then displaying the task again
     const startEditingTask = (taskToEdit) => {
         const newTaskList = tasks.map(
             (task) => {
@@ -104,8 +115,9 @@ function Todolist() {
             }
         );
         setTasks(newTaskList);
-        setAddingTask(false);
+        setAddingTask(false); // closes add task form if user chooses to edit existing task
     };
+    // Closes the task editing form
     const cancelEditingTask = () => {
         const newTaskList = tasks.map(
             task => { 
@@ -116,11 +128,13 @@ function Todolist() {
         setTasks(newTaskList);
     };
 
-    // function to increase task ID when new task is added
+    // Function to increase task ID when new task is added
     const incrementTaskID = () => {
         setNextTaskID(nextTaskID + 1);
     };
 
+    // Function passed to add task form, called when form is submitted
+    // Adds new task to todolist and closes the form
     const handleFormSubmit = (newTask) => {
         newTask.id = nextTaskID;
         addTask(newTask);

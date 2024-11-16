@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-const ExclamationIcon = () => <i className="fa-solid fa-exclamation" style={{color: "#ff3030"}} />;
-
 function AddTaskForm({ onSubmit, cancelAddingTask }) {
     
     // Form input values in state
@@ -9,6 +7,7 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
     const [ descInput, setDescInput ] = useState('');
     const [ priorityInput, setPriorityInput ] = useState('1');
 
+    // Function called when form is submitted, creates new task. Ready to be added
     const handleSubmit = (event) => {
         event.preventDefault(); // stop page refresh
 

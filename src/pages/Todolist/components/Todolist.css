@@ -1,3 +1,4 @@
+/* Overall todolist styling */
 #todolist {
     width: min(900px, 90vw);
     margin: 0 auto;
@@ -56,9 +57,12 @@
     }
 }
 
+/* Fades in task content when task is opened */
 .todolist-item.task-open .todolist-item-title, .todolist-item.task-open .todolist-item-desc {
     animation: 400ms appear ease-in-out;
 }
+
+/* Styles for todolist item buttons */
 
 .todolist-item .todolist-item-buttons {
     display: flex;
@@ -105,13 +109,15 @@
     pointer-events: none;
 }
 
-.todolist-item .fa-chevron-down {
+.todolist-item .fa-chevron-down { /* open task button */
     transition: transform 250ms ease-in-out;
 }
 
 .todolist-item.task-open .fa-chevron-down {
     transform: rotate(180deg);
 }
+
+/* text showed beside task buttons when hovered */
 
 .todolist-item .delete-task-btn::after {
     content: "Delete";
@@ -151,6 +157,8 @@
     opacity: 1;
 }
 
+/* task states (completed, open, editing) */
+
 .todolist-item.completed-task {
     background-color: green;
 }
@@ -164,6 +172,7 @@
 }
 
 /* Priority based styling */
+
 .todolist-item.priority-1 {
     
 }
@@ -204,6 +213,7 @@
     
 }
 
+/* 'Add new Task' button */
 
 .todolist-item.add-task-button {
     padding: 0 calc(12px + 1vw);
@@ -231,6 +241,8 @@
     font-size: calc(0.3vw + 1.3rem);
 }
 
+/* 'Clear Tasks' button */
+
 .todolist-item.clear-tasks-button {
     font-family: var(--header-font);
     width: calc(36% - 12vw);
@@ -257,6 +269,8 @@
     font-size: calc(0.2vw + 1rem);
     padding-right: 2px;
 }
+
+/* styles for add and edit task forms */
 
 .task-form {
     display: flex;

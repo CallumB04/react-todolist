@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-const ExclamationIcon = () => <i className="fa-solid fa-exclamation" style={{color: "#ff3030"}} />;
-
 function EditTaskForm(props) {
 
     const { title, description, priority, id, editTask, cancelEditingTask } = props;

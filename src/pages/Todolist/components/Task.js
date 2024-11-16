@@ -9,7 +9,7 @@ function Task(props) {
     
     return (
         <div className={`todolist-item priority-${priority} 
-                        ${completed ? "completed-task" : ""} 
+                        ${completed ? "completed-task" : ""}
                         ${open ? "task-open" : ""} 
                         ${editing ? "task-editing" : ""}`}>
             <div className="todolist-item-content">
@@ -19,7 +19,7 @@ function Task(props) {
                 </i>
 
                 <h2 className="todolist-item-title">{capitalize(title)}</h2>
-                {open ? <p className="todolist-item-desc">{capitalize(description)}</p> : null}
+                {open ? <p className="todolist-item-desc">{capitalize(description)}</p> : null} 
             </div>
 
             <div className="todolist-item-buttons">
@@ -27,14 +27,14 @@ function Task(props) {
                     className="fa-solid fa-trash task-btn delete-task-btn"
                     onClick={() => {removeTask({id: id})}}>
                 </i>
-                {!editing 
+                {!editing // displays editing form when task is being edited
                     ? <i
                         className="fa-solid fa-pen task-btn edit-task-btn"
                         onClick={() => {startEditingTask({id: id})}}>
                     </i>
                     : null
                 }
-                {!completed
+                {!completed // hides complete button if tasks is already completed
                     ? <i
                         className="fa-solid fa-check task-btn complete-task-btn"
                         onClick={() => {completeTask({id: id})}}>
