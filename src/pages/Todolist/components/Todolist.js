@@ -4,6 +4,7 @@ import Task from './Task';
 import AddTaskForm from './AddTaskForm';
 import AddTaskButton from './AddTaskButton';
 import ClearTasksButton from './ClearTasksButton';
+import EditTaskForm from './EditTaskForm';
 
 function Todolist() {
 
@@ -53,22 +54,23 @@ function Todolist() {
         })
         setTasks(newTaskList);
     };
-    // const editTask = (newTask) => {
-    //     const { title, description, priority, completed, id } = newTask;
+    const editTask = (newTask) => {
+        const { title, description, priority, completed, id } = newTask;
 
-    //     const newTaskList = tasks.map(
-    //         (task) => {
-    //             if (task.id === id) {
-    //                 task.title = title;
-    //                 task.description = description;
-    //                 task.priority = priority;
-    //                 task.completed = completed; 
-    //             } return task;
-    //         }
-    //     );
+        const newTaskList = tasks.map(
+            (task) => {
+                if (task.id === id) {
+                    task.title = title;
+                    task.description = description;
+                    task.priority = priority;
+                    task.completed = completed; 
+                    task.editing = false;
+                } return task;
+            }
+        );
 
-    //     setTasks(newTaskList);
-    // };
+        setTasks(newTaskList);
+    };
     const openTask = (taskToOpen) => {
         const newTaskList = tasks.map(task => {
             if (task.id === taskToOpen.id) { task.open = !task.open; }
@@ -84,6 +86,7 @@ function Todolist() {
     // functions to switch between task add button and form
     const startAddingTask = () => {
         setAddingTask(true);
+        cancelEditingTask();
     };
     const finishAddingTask = () => {
         setAddingTask(false);
@@ -101,6 +104,16 @@ function Todolist() {
             }
         );
         setTasks(newTaskList);
+        setAddingTask(false);
+    };
+    const cancelEditingTask = () => {
+        const newTaskList = tasks.map(
+            task => { 
+                task.editing = false;
+                return task;
+            }
+        )
+        setTasks(newTaskList);
     };
 
     // function to increase task ID when new task is added
@@ -116,8 +129,8 @@ function Todolist() {
 
     return (
         <div id="todolist">
-            {tasks.map((task, index) => {
-                return (
+            {tasks.map((task) => {
+                return !task.editing ? (
                     <Task 
                         key={task.id}
                         id={task.id}
@@ -131,6 +144,17 @@ function Todolist() {
                         completeTask={completeTask}
                         openTask={openTask}
                         startEditingTask={startEditingTask}
+                    />
+                )
+                : (
+                    <EditTaskForm 
+                        key={task.id}
+                        id={task.id}
+                        title={task.title} 
+                        description={task.description}
+                        priority={task.priority}
+                        editTask={editTask}
+                        cancelEditingTask={cancelEditingTask}
                     />
                 );
             })}

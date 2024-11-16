@@ -70,7 +70,7 @@
     padding-top: calc(6px - 0.2vw);
 }
 
-.todolist-item:not(#add-task-form) {
+.todolist-item:not(.task-form) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -216,7 +216,7 @@
     padding-right: 2px;
 }
 
-#add-task-form {
+.task-form {
     display: flex;
     flex-direction: column;
     font-family: var(--text-font);
@@ -224,7 +224,7 @@
     padding-top: 5px;
 }
 
-#add-task-form input[type="text"] {
+.task-form input[type="text"] {
     width: 100%;
     height: 50px;
     border: none;
@@ -238,7 +238,7 @@
     position: relative;
 }
 
-#add-task-form #task-form-radios {
+.task-form .task-form-radios {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -251,19 +251,19 @@
     font-size: calc(0.2vw + 0.9rem);
 }
 
-#add-task-form #task-form-radios input {
+.task-form .task-form-radios input {
     margin-right: 10px;
     accent-color: var(--navbar-highlight-color);
     scale: 1.2;
 }
 
-#add-task-form #form-buttons {
+.task-form .form-buttons {
     margin-top: 45px;
     display: flex;
     justify-content: space-evenly;
 }
 
-#add-task-form button {
+.task-form button {
     width: calc(40% - 5vw);
     height: calc(40px + 0.2vw);
     border: none;
@@ -273,24 +273,24 @@
     transition: background-color 200ms ease;
 }
 
-#add-task-form button:hover {
+.task-form button:hover {
     cursor: pointer;
 }
 
-#add-task-form button[type="submit"] {
+.task-form button[type="submit"] {
     color: #f7f7f7;
     background-color: var(--navbar-highlight-color);
 }
 
-#add-task-form button[type="submit"]:hover {
+.task-form button[type="submit"]:hover {
     background-color: #33558b;
 }
 
-#add-task-form #cancel-btn {
+.task-form .cancel-btn {
     color: var(--text-color);
     background-color: #d8d8d8;
 }
 
-#add-task-form #cancel-btn:hover {
+.task-form .cancel-btn:hover {
     background-color: #e1e1e1;
 }
