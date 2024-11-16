@@ -87,6 +87,14 @@ function Todolist() {
         })
         setTasks(newTaskList);
     };
+    // Closes any open task, called when a form is opened
+    const closeAllTasks = () => {
+        const newTaskList = tasks.map(task => {
+            task.open = false;
+            return task;
+        });
+        setTasks(newTaskList);
+    }
     // Empties the todolist
     const clearTasks = () => {
         setTasks([]);
@@ -96,6 +104,7 @@ function Todolist() {
     const startAddingTask = () => {
         setAddingTask(true);
         cancelEditingTask();
+        closeAllTasks();
     };
     const finishAddingTask = () => {
         setAddingTask(false);
@@ -116,6 +125,7 @@ function Todolist() {
         );
         setTasks(newTaskList);
         setAddingTask(false); // closes add task form if user chooses to edit existing task
+        closeAllTasks();
     };
     // Closes the task editing form
     const cancelEditingTask = () => {
