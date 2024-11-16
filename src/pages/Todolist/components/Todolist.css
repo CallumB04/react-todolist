@@ -163,6 +163,48 @@
     background-color: blue;
 }
 
+/* Priority based styling */
+.todolist-item.priority-1 {
+    
+}
+
+.todolist-item.priority-2 {
+    
+}
+
+.todolist-item.priority-3 {
+    
+}
+
+.todolist-item.priority-4 {
+    
+}
+
+.todolist-item.priority-5 {
+    
+}
+
+.todolist-item.priority-6 {
+    
+}
+
+.todolist-item.priority-7 {
+    
+}
+
+.todolist-item.priority-8 {
+    
+}
+
+.todolist-item.priority-9 {
+    
+}
+
+.todolist-item.priority-10 {
+    
+}
+
+
 .todolist-item.add-task-button {
     padding: 0 calc(12px + 1vw);
     font-family: var(--header-font);
@@ -238,27 +280,26 @@
     position: relative;
 }
 
-.task-form .task-form-radios {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: 1.1rem;
-
+.task-form .priority-range {
+    margin: 0 auto;
     margin-top: 15px;
+    width: 90%;
+    max-width: 650px;
+
+    display: flex;
+    flex-direction: column-reverse;
+
 }
 
-.fa-exclamation {
-    font-size: calc(0.2vw + 0.9rem);
+.task-form .priority-range .priority-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
-.task-form .task-form-radios input {
-    margin-right: 10px;
-    accent-color: var(--navbar-highlight-color);
-    scale: 1.2;
-}
 
 .task-form .form-buttons {
-    margin-top: 45px;
+    margin-top: calc(38px - 0.4vw);
     display: flex;
     justify-content: space-evenly;
 }

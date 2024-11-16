@@ -42,38 +42,15 @@ function EditTaskForm(props) {
                 required
             />
 
-            <div className="task-form-radios">
-                <label>
-                    <input 
-                        type="radio"
-                        name="priority"
-                        value="active"
-                        checked={ newPriorityInput === "active" }
-                        onChange={ (event) => setNewPriority(event.target.value) }
-                    />
-                    Active
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        name="priority"
-                        value="important"
-                        checked={ newPriorityInput === "important" }
-                        onChange={ (event) => setNewPriority(event.target.value) }
-                    />
-                    Important <ExclamationIcon /><ExclamationIcon />
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        name="priority"
-                        value="low-priority"
-                        checked={ newPriorityInput === "low-priority" }
-                        onChange={ (event) => setNewPriority(event.target.value) }
-                    />
-                    Low Priority
-                </label>
-            </div>
+<label className="priority-range">
+                <input 
+                    type="range" 
+                    min="1" 
+                    max="10" 
+                    value={newPriorityInput}
+                    onChange={ (event) => setNewPriority(event.target.value) }
+                /> <span className="priority-label"><span>1</span><span>Priority: {newPriorityInput}</span><span>10</span></span>
+            </label>
 
             <div className="form-buttons">
                 <button type="submit">Confirm</button>

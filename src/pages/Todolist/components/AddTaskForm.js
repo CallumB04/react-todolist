@@ -7,7 +7,7 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
     // Form input values in state
     const [ titleInput, setTitleInput ] = useState('');
     const [ descInput, setDescInput ] = useState('');
-    const [ priorityInput, setPriorityInput ] = useState('active');
+    const [ priorityInput, setPriorityInput ] = useState('1');
 
     const handleSubmit = (event) => {
         event.preventDefault(); // stop page refresh
@@ -41,38 +41,15 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                 required
             />
 
-            <div className="task-form-radios">
-                <label>
-                    <input 
-                        type="radio"
-                        name="priority"
-                        value="active"
-                        checked={ priorityInput === "active" }
-                        onChange={ (event) => setPriorityInput(event.target.value) }
-                    />
-                    Active
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        name="priority"
-                        value="important"
-                        checked={ priorityInput === "important" }
-                        onChange={ (event) => setPriorityInput(event.target.value) }
-                    />
-                    Important <ExclamationIcon /><ExclamationIcon />
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        name="priority"
-                        value="low-priority"
-                        checked={ priorityInput === "low-priority" }
-                        onChange={ (event) => setPriorityInput(event.target.value) }
-                    />
-                    Low Priority
-                </label>
-            </div>
+            <label className="priority-range">
+                <input 
+                    type="range" 
+                    min="1" 
+                    max="10" 
+                    value={priorityInput}
+                    onChange={ (event) => setPriorityInput(event.target.value) }
+                /> <span className="priority-label"><span>1</span><span>Priority: {priorityInput}</span><span>10</span></span>
+            </label>
 
             <div className="form-buttons">
                 <button type="submit">Add Task</button>
