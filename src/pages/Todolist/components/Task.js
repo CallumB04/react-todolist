@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 function Task(props) {
     const { title, description, priority, id, completed, open, editing, 
@@ -6,6 +6,20 @@ function Task(props) {
 
     // function to ensure first letter of string is capitalized
     const capitalize = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
+
+    // handling resizing of window for title/description length
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleWindowResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleWindowResize);
+
+        return () => window.removeEventListener("resize", handleWindowResize);
+    })
+
+    // max lengths for task title and description
+    const maxTitleLength = useMemo(() => 11 + windowWidth / 50, [windowWidth]);
+    const maxDescriptionLength = useMemo(() => (windowWidth / 1.2) - (0.000275 * windowWidth ** 2), [windowWidth]);
     
     return (
         <div className={`todolist-item priority-${priority} 
@@ -19,12 +33,16 @@ function Task(props) {
                 </i>
 
                 <span className="todolist-title-wrapper">
-                    <h2 className="todolist-item-title">{capitalize(title)}</h2>
+                    <h2 className="todolist-item-title">{
+                        title.length < maxTitleLength
+                        ? capitalize(title)
+                        : capitalize(title).slice(0, maxTitleLength - 2).replace(/\s$/g, "") + "..."
+                    }</h2>
                 </span>
                 {open ? <p className="todolist-item-desc">{
-                    description.length < 350
+                    description.length < maxDescriptionLength
                     ? capitalize(description)
-                    : capitalize(description).slice(0, 350).replace(/\s$/g, "") + "..."
+                    : capitalize(description).slice(0, maxDescriptionLength).replace(/\s$/g, "") + "..."
                 }</p> : null} 
             </div>
 
