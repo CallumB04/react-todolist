@@ -28,6 +28,7 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    font-family: var(--text-font);
 }
 
 .todolist-item.task-open .todolist-item-content {
@@ -46,15 +47,16 @@
     font-size: calc(0.2vw + 1.3rem);
     position: absolute;
     left: 0;
-    top: calc(48% - 0.1vw);
+    top: 50%;
     translate: 0 -50%;
+    font-weight: 400;
 }
 
 .todolist-item-desc {
     position: absolute;
     font-size: calc(0.1vw + 0.8rem);
     max-width: 90%;
-    top: calc(30px + 0.1vw);
+    top: calc(32px + 0.1vw);
 }
 
 @keyframes appear {
