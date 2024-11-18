@@ -229,7 +229,7 @@
     padding: 0 calc(12px + 1vw);
     font-family: var(--header-font);
     width: calc(57% - 15vw);
-    height: 50px;
+    height: var(--todolist-button-height);
 }
 
 @media (max-width: 450px) {
@@ -256,7 +256,7 @@
 .todolist-item.clear-tasks-button {
     font-family: var(--header-font);
     width: calc(36% - 12vw);
-    height: 50px;
+    height: var(--todolist-button-height);
 }
 
 @media (max-width: 450px) {
@@ -363,6 +363,15 @@
 
 /* Animating edit form */
 
+@keyframes add-form-slide {
+    from {
+        height: var(--todolist-button-height);
+    }
+    to {
+        height: 300px;
+    }
+}
+
 @keyframes edit-form-slide {
     from {
         height: var(--task-height);
@@ -372,7 +381,7 @@
     }
 }
 
-@keyframes edit-content-appear {
+@keyframes form-content-appear {
     0% {
         opacity: 0;
     }
@@ -384,12 +393,16 @@
     }
 }
 
+#add-task-form {
+    animation: 400ms add-form-slide ease;
+}
+
 #edit-task-form {
     animation: 400ms edit-form-slide ease;
 }
 
-#edit-task-form > * {
-    animation: 600ms edit-content-appear ease;
+.task-form > * {
+    animation: 600ms form-content-appear ease;
 }
 
 /* casting shadows on tasks and certain elements */

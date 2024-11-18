@@ -27,5 +27,6 @@
     --todolist-item-bg-color: transparent;
     --todolist-item-bg-color-hover: #eaeaea;
     --task-height: 40px;
+    --todolist-button-height: 50px;
 
 }
