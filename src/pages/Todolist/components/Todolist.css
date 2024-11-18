@@ -168,9 +168,12 @@
     background-color: rgb(179, 235, 179);
 }
 
-.todolist-item.completed-task .todolist-item-title,
-.todolist-item.completed-task .todolist-item-desc {
+.todolist-item.completed-task .todolist-item-title {
     text-decoration: 2px line-through;
+}
+
+.todolist-item.completed-task .todolist-item-desc {
+    text-decoration: 1px line-through;
 }
 
 .todolist-item.task-open {
