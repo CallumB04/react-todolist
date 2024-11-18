@@ -361,7 +361,7 @@
     background-color: #e1e1e1;
 }
 
-/* Animating edit form */
+/* Animating add and edit task forms */
 
 @keyframes add-form-slide {
     from {
