@@ -18,7 +18,9 @@ function Task(props) {
                     onClick={() => {openTask({id: id})}}>
                 </i>
 
-                <h2 className="todolist-item-title">{capitalize(title)}</h2>
+                <span className="todolist-title-wrapper">
+                    <h2 className="todolist-item-title">{capitalize(title)}</h2>
+                </span>
                 {open ? <p className="todolist-item-desc">{capitalize(description)}</p> : null} 
             </div>
 
