@@ -183,16 +183,18 @@ function Todolist() {
                 );
             })}
             
-            {
-                isAddingTask 
-                ? <AddTaskForm onSubmit={handleFormSubmit} cancelAddingTask={finishAddingTask}/> 
-                : <AddTaskButton onClick={startAddingTask}/>
-            }
-            {
-                tasks.length > 0
-                ? <ClearTasksButton onClick={clearTasks}/>
-                : null
-            }
+            <div id="task-buttons">
+                {
+                    isAddingTask 
+                    ? <AddTaskForm onSubmit={handleFormSubmit} cancelAddingTask={finishAddingTask}/> 
+                    : <AddTaskButton onClick={startAddingTask}/>
+                }
+                {
+                    tasks.length > 0 && !isAddingTask
+                    ? <ClearTasksButton onClick={clearTasks}/>
+                    : null
+                }
+            </div>
             
         </div>
     );

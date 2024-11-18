@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: end;
-    row-gap: 10px;
+    row-gap: var(--todolist-gap);
 }
 
 .todolist-item {
@@ -223,12 +223,21 @@
     
 }
 
+/* Task buttons */
+
+#task-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    column-gap: var(--todolist-gap);
+}
+
 /* 'Add new Task' button */
 
 .todolist-item.add-task-button {
-    padding: 0 calc(12px + 1vw);
+    padding: 0 calc(15px + 0.5vw);
     font-family: var(--header-font);
-    width: calc(57% - 15vw);
+    width: calc(57% - 16vw);
     height: var(--todolist-button-height);
 }
 
@@ -255,7 +264,7 @@
 
 .todolist-item.clear-tasks-button {
     font-family: var(--header-font);
-    width: calc(36% - 12vw);
+    width: calc(34% - 10vw);
     height: var(--todolist-button-height);
 }
 
@@ -271,13 +280,13 @@
 }
 
 .clear-tasks-button-text {
-    font-size: calc(0.1vw + 0.7rem);
-    padding-right: 10px;
+    font-size: calc(0.1vw + 1rem);
+    padding-left: calc(5px + 0.2vw);
 }
 
 .clear-tasks-button-icon {
-    font-size: calc(0.2vw + 1rem);
-    padding-right: 2px;
+    font-size: calc(0.3vw + 1.3rem);
+    padding-right: 5px;
 }
 
 /* styles for add and edit task forms */
