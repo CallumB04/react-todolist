@@ -18,7 +18,7 @@ function Task(props) {
     })
 
     // max lengths for task title and description
-    const maxTitleLength = useMemo(() => 11 + windowWidth / 50, [windowWidth]);
+    const maxTitleLength = useMemo(() => 11 + windowWidth / 45, [windowWidth]);
     const maxDescriptionLength = useMemo(() => (windowWidth / 1.2) - (0.000275 * windowWidth ** 2), [windowWidth]);
     
     return (
