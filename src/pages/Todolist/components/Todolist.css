@@ -160,7 +160,14 @@
 /* task states (completed, open, editing) */
 
 .todolist-item.completed-task {
-    background-color: green;
+    background-color: rgb(179, 235, 179);
+}
+
+.todolist-item.completed-task .todolist-item-title {
+    text-decoration: line-through;
+}
+.todolist-item.completed-task .todolist-item-desc {
+    text-decoration: line-through;
 }
 
 .todolist-item.task-open {
