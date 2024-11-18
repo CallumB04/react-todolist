@@ -14,7 +14,7 @@
     width: 100%;
     border: 2px solid #111;
     border-radius: 10px;
-    height: 40px;
+    height: var(--task-height);
     padding: 0px 10px;
     color: var(--text-color);
     background-color: var(--todolist-item-bg-color);
@@ -365,7 +365,7 @@
 
 @keyframes edit-form-slide {
     from {
-        height: 40px;
+        height: var(--task-height);
     }
     to {
         height: 300px;
