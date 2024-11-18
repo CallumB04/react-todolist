@@ -61,6 +61,14 @@
     line-height: calc(0.7rem + 0.26vw);
 }
 
+@media (max-width: 450px) {
+    .todolist-item-desc {
+        top: calc(36px);
+        font-size: 1rem;
+        line-height: 0.95rem;
+    }
+}
+
 @keyframes appear {
     0% {
         opacity: 0;
