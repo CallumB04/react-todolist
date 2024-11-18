@@ -361,6 +361,37 @@
     background-color: #e1e1e1;
 }
 
+/* Animating edit form */
+
+@keyframes edit-form-slide {
+    from {
+        height: 40px;
+    }
+    to {
+        height: 300px;
+    }
+}
+
+@keyframes edit-content-appear {
+    0% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#edit-task-form {
+    animation: 400ms edit-form-slide ease;
+}
+
+#edit-task-form > * {
+    animation: 600ms edit-content-appear ease;
+}
+
 /* casting shadows on tasks and certain elements */
 
 .todolist-item, .task-form button {
