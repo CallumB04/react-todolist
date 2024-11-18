@@ -18,7 +18,8 @@
     padding: 0px 10px;
     color: var(--text-color);
     background-color: var(--todolist-item-bg-color);
-    transition: height 250ms ease-in-out, box-shadow 0.15s ease-in-out, 
+    transition: height 250ms ease-in-out, box-shadow 0.15s ease-in-out;
+    position: relative;
 }
 
 .todolist-item-content {
@@ -36,7 +37,7 @@
 
 .todolist-item-title {
     font-size: calc(0.2vw + 1.3rem);
-    padding-left: 5px;
+    padding-left: calc(23px + 0.3vw);
 }
 
 .todolist-item.task-open .todolist-item-title {
@@ -111,6 +112,9 @@
 
 .todolist-item .fa-chevron-down { /* open task button */
     transition: transform 250ms ease-in-out;
+    position: absolute;
+    left: 8px;
+    top: calc(5px - 0.15vw);
 }
 
 .todolist-item.task-open .fa-chevron-down {
