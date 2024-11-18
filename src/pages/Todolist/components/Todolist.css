@@ -115,6 +115,7 @@
     position: absolute;
     left: 8px;
     top: calc(5px - 0.15vw);
+    transform-origin: 50% 55%;
 }
 
 .todolist-item.task-open .fa-chevron-down {
