@@ -21,7 +21,11 @@ function Task(props) {
                 <span className="todolist-title-wrapper">
                     <h2 className="todolist-item-title">{capitalize(title)}</h2>
                 </span>
-                {open ? <p className="todolist-item-desc">{capitalize(description)}</p> : null} 
+                {open ? <p className="todolist-item-desc">{
+                    description.length < 350
+                    ? capitalize(description)
+                    : capitalize(description).slice(0, 350).replace(/\s$/g, "") + "..."
+                }</p> : null} 
             </div>
 
             <div className="todolist-item-buttons">
