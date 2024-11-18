@@ -251,6 +251,7 @@
     padding: 0 calc(15px + 0.5vw);
     font-family: var(--header-font);
     width: calc(57% - 16vw);
+    max-width: 206px;
     height: var(--todolist-button-height);
 }
 
@@ -268,6 +269,7 @@
     font-family: var(--header-font);
     width: calc(34% - 10vw);
     height: var(--todolist-button-height);
+    max-width: 114px;
 }
 
 @media (max-width: 450px) {
