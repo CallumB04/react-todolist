@@ -37,16 +37,15 @@
 
 .todolist-item-title {
     font-size: calc(0.2vw + 1.3rem);
-    padding-left: calc(23px + 0.3vw);
-}
-
-.todolist-item.task-open .todolist-item-title {
-    padding-left: 0px;
+    position: absolute;
+    left: calc(30px + 0.5vw);
+    top: calc(4px - 0.15vw);
 }
 
 .todolist-item-desc {
     font-size: calc(0.1vw + 0.8rem);
-    max-width: 75%;
+    max-width: 90%;
+    padding-top: 30px;
 }
 
 @keyframes appear {
@@ -59,7 +58,7 @@
 }
 
 /* Fades in task content when task is opened */
-.todolist-item.task-open .todolist-item-title, .todolist-item.task-open .todolist-item-desc {
+.todolist-item.task-open .todolist-item-desc {
     animation: 400ms appear ease-in-out;
 }
 
