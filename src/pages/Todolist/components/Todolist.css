@@ -43,9 +43,10 @@
 }
 
 .todolist-item-desc {
+    position: absolute;
     font-size: calc(0.1vw + 0.8rem);
     max-width: 90%;
-    padding-top: 30px;
+    top: 33px;
 }
 
 @keyframes appear {
