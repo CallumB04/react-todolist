@@ -232,6 +232,16 @@
     column-gap: var(--todolist-gap);
 }
 
+#task-buttons > button {
+    background-color: transparent;
+    transition: background-color 300ms ease;
+}
+
+#task-buttons > button:hover {
+    background-color: var(--todolist-item-bg-color-hover);
+    cursor: pointer;
+}
+
 /* 'Add new Task' button */
 
 .todolist-item.add-task-button {
@@ -245,11 +255,6 @@
     .todolist-item.add-task-button {
         padding: 0 calc(5px + 1vw);
     }
-}
-
-.todolist-item.add-task-button:hover {
-    background-color: var(--todolist-item-bg-color-hover);
-    cursor: pointer;
 }
 
 .add-task-button-text {
@@ -272,11 +277,6 @@
     .todolist-item.clear-tasks-button {
         padding: 0 calc(5px + 1vw);
     }
-}
-
-.todolist-item.clear-tasks-button:hover {
-    background-color: var(--todolist-item-bg-color-hover);
-    cursor: pointer;
 }
 
 .clear-tasks-button-text {
