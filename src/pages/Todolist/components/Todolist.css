@@ -59,6 +59,7 @@
     max-width: 90%;
     top: calc(32px + 0.1vw);
     line-height: calc(0.7rem + 0.2vw);
+    word-break: break-word;
 }
 
 @media (max-width: 450px) {
