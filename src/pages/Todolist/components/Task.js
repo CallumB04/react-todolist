@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
 function Task(props) {
-    const { title, description, priority, id, completed, open, editing, 
+    const { title, description, date_created, priority, id, completed, open, editing, 
         removeTask, completeTask, openTask, startEditingTask } = props;
 
     // function to ensure first letter of string is capitalized
@@ -60,7 +60,8 @@ function Task(props) {
                 }
                 <i
                     className="fa-solid fa-info-circle task-btn task-info-hover"
-                    datapriority={`${priority}`}>
+                    datapriority={`${priority}`}
+                    datacreationdate={`${date_created}`}>
                 </i>
                 {!completed // hides complete button if tasks is already completed
                     ? <i

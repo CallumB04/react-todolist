@@ -14,6 +14,7 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
         const newTask = { // constructing new task (id will be added in parent)
             title: titleInput,
             description: descInput,
+            date_created: new Date().toLocaleDateString('en-GB'),
             priority: priorityInput,
             completed: false,
             open: false,

@@ -151,20 +151,20 @@
 }
 
 .todolist-item .task-info-hover:hover::after {
-    content: "Priority: " attr(datapriority);
+    content: "Priority: " attr(datapriority) "\00000aDate Created: " attr(datacreationdate);
     white-space: pre;
-    line-height: calc(0.7vw + 0.8rem);
+    line-height: calc(0.4vw + 1.1rem);
     font-family: var(--header-font);
     font-weight: 400;
     font-size: calc(0.2vw + 0.8rem);
     width: max-content;
     height: max-content;
-    padding: 4px 9px;
+    padding: 6px 9px;
     border-radius: 10px;
     position: absolute;
     opacity: 0.9;
-    top: calc(-25px - 0.4vw);
-    right: -25px;
+    top: calc(-42px - 0.55vw);
+    right: -70px;
     z-index: 3;
 
     color: #f3f3f3;

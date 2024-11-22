@@ -160,6 +160,7 @@ function Todolist() {
                         id={task.id}
                         title={task.title} 
                         description={task.description}
+                        date_created={task.date_created}
                         priority={task.priority}
                         completed={task.completed}
                         open={task.open}
