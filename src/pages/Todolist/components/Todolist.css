@@ -146,6 +146,31 @@
     transform: rotate(180deg);
 }
 
+.todolist-item .task-info-hover {
+    position: relative;
+}
+
+.todolist-item .task-info-hover:hover::after {
+    content: "Priority: " attr(datapriority);
+    white-space: pre;
+    line-height: calc(0.7vw + 0.8rem);
+    font-family: var(--header-font);
+    font-weight: 400;
+    font-size: calc(0.2vw + 0.8rem);
+    width: max-content;
+    height: max-content;
+    padding: 4px 9px;
+    border-radius: 10px;
+    position: absolute;
+    opacity: 0.9;
+    top: calc(-25px - 0.4vw);
+    right: -25px;
+    z-index: 3;
+
+    color: #f3f3f3;
+    background-color: var(--navbar-color);
+}
+
 /* text showed beside task buttons when hovered */
 
 .todolist-item .delete-task-btn::after {
