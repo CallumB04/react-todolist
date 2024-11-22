@@ -58,6 +58,10 @@ function Task(props) {
                     </i>
                     : null
                 }
+                <i
+                    className="fa-solid fa-info-circle task-btn task-info-hover"
+                    id={`task-info-${id}`}>
+                </i>
                 {!completed // hides complete button if tasks is already completed
                     ? <i
                         className="fa-solid fa-check task-btn complete-task-btn"

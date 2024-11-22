@@ -150,7 +150,7 @@
 
 .todolist-item .delete-task-btn::after {
     content: "Delete";
-    left: calc(-1.4vw - 90px);
+    left: calc(-1.6vw - 116px);
 }
 
 .todolist-item .complete-task-btn::after {
@@ -160,24 +160,15 @@
 
 .todolist-item .edit-task-btn::after {
     content: "Edit";
-    left: calc(-1vw - 51px);
-}
-
-.todolist-item.task-editing .delete-task-btn::after {
-    content: "Delete";
-    left: calc(-1.1vw - 64px);
+    left: calc(-1.2vw - 77px);
 }
 
 .todolist-item.completed-task .edit-task-btn::after {
-    left: calc(-0.4vw - 33px);  
+    left: calc(-1vw - 53px);
 }
 
 .todolist-item.completed-task .delete-task-btn::after {
-    left: calc(-0.95vw - 70px);  
-}
-
-.todolist-item.task-editing.completed-task .delete-task-btn::after {
-    left: calc(-0.65vw - 45px);  
+    left: calc(-1.4vw - 92px);
 }
 
 .todolist-item .delete-task-btn:hover::after, 
