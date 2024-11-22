@@ -224,48 +224,6 @@
     background-color: blue;
 }
 
-/* Priority based styling */
-
-.todolist-item.priority-1 {
-    
-}
-
-.todolist-item.priority-2 {
-    
-}
-
-.todolist-item.priority-3 {
-    
-}
-
-.todolist-item.priority-4 {
-    
-}
-
-.todolist-item.priority-5 {
-    
-}
-
-.todolist-item.priority-6 {
-    
-}
-
-.todolist-item.priority-7 {
-    
-}
-
-.todolist-item.priority-8 {
-    
-}
-
-.todolist-item.priority-9 {
-    
-}
-
-.todolist-item.priority-10 {
-    
-}
-
 /* Task buttons */
 
 #task-buttons {
