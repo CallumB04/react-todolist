@@ -349,6 +349,81 @@
     user-select: none;
 }
 
+/* Styling the priority range input */
+
+.task-form .priority-range-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.task-form .priority-range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--navbar-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.task-form .priority-range-input::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--navbar-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.task-form .priority-range-input::-webkit-slider-thumb:hover {
+    background: var(--navbar-highlight-color);
+}
+
+.task-form .priority-range-input::-moz-range-thumb:hover {
+    background: var(--navbar-highlight-color);
+}
+
+.task-form .priority-range-input::-moz-range-track {
+    background: #ccc;
+    border-radius: 5px;
+    height: 10px;
+}
+
+.task-form .priority-range-input::-ms-track {
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.task-form .priority-range-input::-ms-fill-lower {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.task-form .priority-range-input::-ms-fill-upper {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.task-form .priority-range-input::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--navbar-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 
 .task-form .form-buttons {
     margin-top: calc(38px - 0.4vw);

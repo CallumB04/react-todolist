@@ -48,6 +48,7 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                     max="10" 
                     value={priorityInput}
                     onChange={ (event) => setPriorityInput(event.target.value) }
+                    className='priority-range-input'
                 /> 
                 <span className="priority-label">
                     <span >1 <i>(low)</i></span>
