@@ -1,25 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 
 function Task(props) {
-    const { title, description, priority, id, completed, open, editing, 
-        removeTask, completeTask, openTask, startEditingTask } = props;
-
-    // function to ensure first letter of string is capitalized
-    const capitalize = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
-
-    // handling resizing of window for title/description length
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-        const handleWindowResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener("resize", handleWindowResize);
-
-        return () => window.removeEventListener("resize", handleWindowResize);
-    })
-
-    // max lengths for task title and description
-    const maxTitleLength = useMemo(() => 11 + windowWidth / 45, [windowWidth]);
-    const maxDescriptionLength = useMemo(() => (windowWidth / 1.2) - (0.000275 * windowWidth ** 2), [windowWidth]);
+    const { title, description, date_created, priority, id, completed, open, editing, 
+        removeTask, completeTask, openTask, startEditingTask,
+        capitalize, maxTitleLength, maxDescriptionLength } = props;
     
     return (
         <div className={`todolist-item priority-${priority} 
@@ -32,7 +16,7 @@ function Task(props) {
                     onClick={() => {openTask({id: id})}}>
                 </i>
 
-                <span className="todolist-title-wrapper">
+                <span className="todolist-title-wrapper" onClick={() => {openTask({id: id})}}>
                     <h2 className="todolist-item-title">{
                         title.length < maxTitleLength
                         ? capitalize(title)
@@ -58,6 +42,11 @@ function Task(props) {
                     </i>
                     : null
                 }
+                <i
+                    className="fa-solid fa-info-circle task-btn task-info-hover"
+                    datapriority={`${priority}`}
+                    datacreationdate={`${date_created}`}>
+                </i>
                 {!completed // hides complete button if tasks is already completed
                     ? <i
                         className="fa-solid fa-check task-btn complete-task-btn"

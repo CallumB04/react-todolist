@@ -37,11 +37,15 @@
 }
 
 .todolist-title-wrapper {
-    width: 100%;
+    width: 80%;
     height: var(--task-height);
     position: absolute;
     top: 0;
     left: calc(30px + 0.5vw); 
+}
+
+.todolist-title-wrapper:hover {
+    cursor: pointer;
 }
 
 .todolist-item-title {
@@ -58,7 +62,8 @@
     font-size: calc(0.1vw + 0.8rem);
     max-width: 90%;
     top: calc(32px + 0.1vw);
-    line-height: calc(0.7rem + 0.26vw);
+    line-height: calc(0.7rem + 0.2vw);
+    word-break: break-word;
 }
 
 @media (max-width: 450px) {
@@ -145,11 +150,36 @@
     transform: rotate(180deg);
 }
 
+.todolist-item .task-info-hover {
+    position: relative;
+}
+
+.todolist-item .task-info-hover:hover::after {
+    content: "Priority: " attr(datapriority) "\00000aDate Created: " attr(datacreationdate);
+    white-space: pre;
+    line-height: calc(0.4vw + 1.1rem);
+    font-family: var(--header-font);
+    font-weight: 400;
+    font-size: calc(0.2vw + 0.8rem);
+    width: max-content;
+    height: max-content;
+    padding: 6px 9px;
+    border-radius: 10px;
+    position: absolute;
+    opacity: 0.9;
+    top: calc(-42px - 0.55vw);
+    right: -70px;
+    z-index: 3;
+
+    color: #f3f3f3;
+    background-color: var(--navbar-color);
+}
+
 /* text showed beside task buttons when hovered */
 
 .todolist-item .delete-task-btn::after {
     content: "Delete";
-    left: calc(-1.4vw - 90px);
+    left: calc(-1.6vw - 116px);
 }
 
 .todolist-item .complete-task-btn::after {
@@ -159,24 +189,15 @@
 
 .todolist-item .edit-task-btn::after {
     content: "Edit";
-    left: calc(-1vw - 51px);
-}
-
-.todolist-item.task-editing .delete-task-btn::after {
-    content: "Delete";
-    left: calc(-1.1vw - 64px);
+    left: calc(-1.2vw - 77px);
 }
 
 .todolist-item.completed-task .edit-task-btn::after {
-    left: calc(-0.4vw - 33px);  
+    left: calc(-1vw - 53px);
 }
 
 .todolist-item.completed-task .delete-task-btn::after {
-    left: calc(-0.95vw - 70px);  
-}
-
-.todolist-item.task-editing.completed-task .delete-task-btn::after {
-    left: calc(-0.65vw - 45px);  
+    left: calc(-1.4vw - 92px);
 }
 
 .todolist-item .delete-task-btn:hover::after, 
@@ -205,48 +226,6 @@
 
 .todolist-item.task-editing {
     background-color: blue;
-}
-
-/* Priority based styling */
-
-.todolist-item.priority-1 {
-    
-}
-
-.todolist-item.priority-2 {
-    
-}
-
-.todolist-item.priority-3 {
-    
-}
-
-.todolist-item.priority-4 {
-    
-}
-
-.todolist-item.priority-5 {
-    
-}
-
-.todolist-item.priority-6 {
-    
-}
-
-.todolist-item.priority-7 {
-    
-}
-
-.todolist-item.priority-8 {
-    
-}
-
-.todolist-item.priority-9 {
-    
-}
-
-.todolist-item.priority-10 {
-    
 }
 
 /* Task buttons */
@@ -368,6 +347,85 @@
     justify-content: space-between;
     margin-bottom: 5px;
     user-select: none;
+}
+
+.task-form .priority-range .priority-label i {
+    font-size: calc(0.3vw + 0.7rem);
+}
+
+/* Styling the priority range input */
+
+.task-form .priority-range-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.task-form .priority-range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--navbar-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.task-form .priority-range-input::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--navbar-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.task-form .priority-range-input::-webkit-slider-thumb:hover {
+    background: var(--navbar-highlight-color);
+}
+
+.task-form .priority-range-input::-moz-range-thumb:hover {
+    background: var(--navbar-highlight-color);
+}
+
+.task-form .priority-range-input::-moz-range-track {
+    background: #ccc;
+    border-radius: 5px;
+    height: 10px;
+}
+
+.task-form .priority-range-input::-ms-track {
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.task-form .priority-range-input::-ms-fill-lower {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.task-form .priority-range-input::-ms-fill-upper {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.task-form .priority-range-input::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--navbar-color);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 

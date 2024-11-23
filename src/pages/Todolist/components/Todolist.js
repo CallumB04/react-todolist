@@ -1,5 +1,5 @@
 import './Todolist.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Task from './Task';
 import AddTaskForm from './AddTaskForm';
 import AddTaskButton from './AddTaskButton';
@@ -38,6 +38,12 @@ function Todolist() {
         }, [tasks]
     );
 
+    // function to scroll to bottom of viewport when form is opened
+    const scrollToBottom = () => {
+        setTimeout(() => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+        }, 500)}; // delay to wait for css transitions to complete
+
     /* Task handler functions */
     
     // Adds a new task to todolist
@@ -58,6 +64,7 @@ function Todolist() {
             return task;
         })
         setTasks(newTaskList);
+        closeTask(taskToComplete);
     };
     // Edits a task in the todolist with new given values
     // Also currently removes completed after making changes
@@ -87,6 +94,15 @@ function Todolist() {
         })
         setTasks(newTaskList);
     };
+    // closes task if active 
+    const closeTask = (tasktoClose) => {
+        const newTaskList = tasks.map(task => {
+            if (task.id === tasktoClose.id) {
+                task.open = false;
+            } return task;
+        });
+        setTasks(newTaskList);
+    };
     // Closes any open task, called when a form is opened
     const closeAllTasks = () => {
         const newTaskList = tasks.map(task => {
@@ -105,6 +121,7 @@ function Todolist() {
         setAddingTask(true);
         cancelEditingTask();
         closeAllTasks();
+        scrollToBottom();
     };
     const finishAddingTask = () => {
         setAddingTask(false);
@@ -151,6 +168,23 @@ function Todolist() {
         finishAddingTask();
     };
 
+    // function to ensure first letter of string is capitalized
+    const capitalize = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
+
+    // handling resizing of window for title/description length
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleWindowResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleWindowResize);
+
+        return () => window.removeEventListener("resize", handleWindowResize);
+    })
+
+    // max lengths for task title and description
+    const maxTitleLength = useMemo(() => 11 + windowWidth / 45, [windowWidth]);
+    const maxDescriptionLength = useMemo(() => (windowWidth / 1.2) - (0.000275 * windowWidth ** 2), [windowWidth]);
+
     return (
         <div id="todolist">
             {tasks.map((task) => {
@@ -160,6 +194,7 @@ function Todolist() {
                         id={task.id}
                         title={task.title} 
                         description={task.description}
+                        date_created={task.date_created}
                         priority={task.priority}
                         completed={task.completed}
                         open={task.open}
@@ -168,6 +203,9 @@ function Todolist() {
                         completeTask={completeTask}
                         openTask={openTask}
                         startEditingTask={startEditingTask}
+                        capitalize={capitalize}
+                        maxTitleLength={maxTitleLength}
+                        maxDescriptionLength={maxDescriptionLength}
                     />
                 )
                 : (

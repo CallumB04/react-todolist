@@ -14,6 +14,7 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
         const newTask = { // constructing new task (id will be added in parent)
             title: titleInput,
             description: descInput,
+            date_created: new Date().toLocaleDateString('en-GB'),
             priority: priorityInput,
             completed: false,
             open: false,
@@ -47,6 +48,7 @@ function AddTaskForm({ onSubmit, cancelAddingTask }) {
                     max="10" 
                     value={priorityInput}
                     onChange={ (event) => setPriorityInput(event.target.value) }
+                    className='priority-range-input'
                 /> 
                 <span className="priority-label">
                     <span >1 <i>(low)</i></span>
