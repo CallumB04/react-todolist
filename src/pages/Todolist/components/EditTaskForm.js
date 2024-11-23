@@ -47,6 +47,7 @@ function EditTaskForm(props) {
                     max="10" 
                     value={newPriorityInput}
                     onChange={ (event) => setNewPriority(event.target.value) }
+                    className='priority-range-input'
                 /> 
                 <span className="priority-label">
                     <span >1 <i>(low)</i></span>

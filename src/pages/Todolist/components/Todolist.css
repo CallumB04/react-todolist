@@ -349,6 +349,10 @@
     user-select: none;
 }
 
+.task-form .priority-range .priority-label i {
+    font-size: calc(0.3vw + 0.7rem);
+}
+
 /* Styling the priority range input */
 
 .task-form .priority-range-input {
