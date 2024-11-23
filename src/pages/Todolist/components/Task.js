@@ -16,7 +16,7 @@ function Task(props) {
                     onClick={() => {openTask({id: id})}}>
                 </i>
 
-                <span className="todolist-title-wrapper">
+                <span className="todolist-title-wrapper" onClick={() => {openTask({id: id})}}>
                     <h2 className="todolist-item-title">{
                         title.length < maxTitleLength
                         ? capitalize(title)
