@@ -1,5 +1,5 @@
 import './Todolist.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Task from './Task';
 import AddTaskForm from './AddTaskForm';
 import AddTaskButton from './AddTaskButton';
@@ -151,6 +151,23 @@ function Todolist() {
         finishAddingTask();
     };
 
+    // function to ensure first letter of string is capitalized
+    const capitalize = (string) => string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
+
+    // handling resizing of window for title/description length
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleWindowResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleWindowResize);
+
+        return () => window.removeEventListener("resize", handleWindowResize);
+    })
+
+    // max lengths for task title and description
+    const maxTitleLength = useMemo(() => 11 + windowWidth / 45, [windowWidth]);
+    const maxDescriptionLength = useMemo(() => (windowWidth / 1.2) - (0.000275 * windowWidth ** 2), [windowWidth]);
+
     return (
         <div id="todolist">
             {tasks.map((task) => {
@@ -169,6 +186,9 @@ function Todolist() {
                         completeTask={completeTask}
                         openTask={openTask}
                         startEditingTask={startEditingTask}
+                        capitalize={capitalize}
+                        maxTitleLength={maxTitleLength}
+                        maxDescriptionLength={maxDescriptionLength}
                     />
                 )
                 : (
