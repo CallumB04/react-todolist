@@ -64,6 +64,7 @@ function Todolist() {
             return task;
         })
         setTasks(newTaskList);
+        closeTask(taskToComplete);
     };
     // Edits a task in the todolist with new given values
     // Also currently removes completed after making changes
@@ -91,6 +92,15 @@ function Todolist() {
             else { task.open = false; }
             return task;
         })
+        setTasks(newTaskList);
+    };
+    // closes task if active 
+    const closeTask = (tasktoClose) => {
+        const newTaskList = tasks.map(task => {
+            if (task.id === tasktoClose.id) {
+                task.open = false;
+            } return task;
+        });
         setTasks(newTaskList);
     };
     // Closes any open task, called when a form is opened
