@@ -38,6 +38,12 @@ function Todolist() {
         }, [tasks]
     );
 
+    // function to scroll to bottom of viewport when form is opened
+    const scrollToBottom = () => {
+        setTimeout(() => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+        }, 500)}; // delay to wait for css transitions to complete
+
     /* Task handler functions */
     
     // Adds a new task to todolist
@@ -105,6 +111,7 @@ function Todolist() {
         setAddingTask(true);
         cancelEditingTask();
         closeAllTasks();
+        scrollToBottom();
     };
     const finishAddingTask = () => {
         setAddingTask(false);
