@@ -4,6 +4,10 @@ This is a simple and interactive Todolist App built using the React Javascript f
 This is my first project using React, and I used it as a learning experience to teach myself the framework, and improve
 throughout the development process.
 
+## Live Demo
+
+You can view the live version of the Todolist [here](https://callumb04.github.io/react-todolist).
+
 ## Installation and Setup
 
 ### Prerequisites
