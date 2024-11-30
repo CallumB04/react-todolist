@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <Router basename="/react-portfolio"> 
+    <Router basename="/react-todolist"> 
     { /* setting basename for deployment to portfolio */ }
       <Navbar />
       <Routes>
