@@ -7,7 +7,8 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-portfolio"> 
+    { /* setting basename for deployment to portfolio */ }
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
